@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="estilo.css">
+  <title>Dashboard</title>
+</head>
+<body>
+
+  <div class="app">
+    <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <span class="brand-name">ADMIN J&C</span>
+        </div>
+      
+        <nav class="menu">
+          <p class="grupo">Monitoreo</p>
+          <a href="#" class="nav-link activo">
+            <img class="ico-img" src="img/resumen.png">
+            Resumen
+          </a>
+      
+          <p class="grupo">Manejo de productos</p>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/nuevo.png">
+            Nuevo producto
+          </a>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/editar.png">
+            Editar producto
+          </a>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/mostrar-productos.png">
+            Mostrar productos
+          </a>
+      
+          <p class="grupo">Manejo de cuentas</p>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/nuevo.png">
+            Nuevo usuario
+          </a>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/editar.png">
+            Editar usuario
+          </a>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/mostrar-usuarios.png">
+            Mostrar usuarios
+            <span class="badge">0</span>
+          </a>
+      
+          <p class="grupo">Configuraciones</p>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/configuracion.png">
+            Configuración
+          </a>
+        </nav>
+      </aside>
+
+    <div class="shell">
+        <header class="topbar">
+            <nav class="migas">
+              <span class="migas-suave">Atlas Commerce</span>
+              <span class="migas-sep">></span>
+              <span class="migas-aqui">Resumen</span>
+            </nav>
+          
+            <label class="busqueda">
+              <input type="search" placeholder="Buscar o saltar a…">
+            </label>
+          
+            <div class="acciones">
+              <button class="icono-btn" type="button">☀</button>
+              <button class="icono-btn" type="button">🔔</button>
+              <span class="avatar">J&C</span>
+            </div>
+        </header>
+
+      <main class="content">
+        <section class="resumen">
+            <p class="hero-etiqueta">Total de ventas: </p>
+            <p class="hero-numero">$203.560</p>
+            <span class="hero-nota">↑ 12,4%</span>
+            <p class="hero-nota">Subió respecto al periodo anterior. Los productos nuevos aportaron la mayor parte.</p>
+            <svg class="mini-grafico" viewBox="0 0 320 64" preserveAspectRatio="none" aria-hidden="true">
+              <polyline
+                fill="none"
+                stroke="#E8D496"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                points="0,50    40,43    
+                        80,48   120,38 
+                        160,42  200,28 
+                        260,18  320,12"
+              />    <!--x , y   y al revez arriba abajo, x abajo arriba -->
+            </svg>
+        </section>
+        
+        <section class="cajitas">
+          <article class="cajaM">
+          <header class="caja-titulo">
+            <span>Total de productos</span>
+          </header>
+          <p class="caja-numero">30 productos</p>
+          <svg class="caja-linea" viewBox="0 0 120 36" preserveAspectRatio="none" aria-hidden="true">
+            <polyline
+              fill="none"
+              stroke="#E8D496"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              points="0,28 20,24 40,26 60,18 60,18 60,18 120,8"
+            />
+          </svg>
+        </article>
+          <article class="cajaM">
+            <header class="caja-titulo">
+              <span>Nuevas cuentas</span>
+            </header>
+            <p class="caja-numero">24 cuentas este mes</p>
+            <svg class="caja-linea" viewBox="0 0 120 36" preserveAspectRatio="none" aria-hidden="true">
+              <polyline 
+                fill="none" 
+                stroke="#E8D496" 
+                stroke-width="2" 
+                stroke-linecap="round" 
+                stroke-linejoin="round"
+                points="0,26 20,22 40,24 60,16 80,18 100,10 120,8"/> 
+            </svg>
+          </article>
+          <article class="cajaM">
+            <header class="caja-titulo">
+              <span>Stock de productos</span>
+              <span class="caja-menos">-12</span>
+            </header>
+            <p class="caja-numero">860 unidades disponibles</p>
+            <svg class="caja-linea" viewBox="0 0 120 36" preserveAspectRatio="none" aria-hidden="true">
+              <polyline fill="none" stroke="#E8D496" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                points="0,10 20,14 40,12 60,20 80,22 100,28 120,30"/>
+            </svg>
+          </article>
+          <article class="cajaM">
+            <header class="caja-titulo">
+              <span>Nuevos productos</span>
+            </header>
+            <p class="caja-numero">7 esta semana</p>
+            <svg class="caja-linea" viewBox="0 0 120 36" preserveAspectRatio="none" aria-hidden="true">
+              <polyline fill="none" stroke="#E8D496" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                points="0,18 15,14 30,20 45,16 60,18 75,14 90,20 105,16 120,18"/>
+            </svg>
+          </article>
+        </section>
+
+        <section class="metas-negocio">
+          <header class="metas-titulo">
+            <h2>Metas Del Negocio</h2>
+          </header>
+          <ul class="metas-lista">
+            <li>
+              <div class="metas-fila">
+                <span>Búsqueda orgánica</span>
+                <strong>418</strong>
+              </div>
+              <div class="barra">
+                <span style="width: 100%"></span>
+              </div>
+            </li>
+            <li>
+              <div class="metas-fila">
+                <span>Referidos</span>
+                <strong>276</strong>
+              </div>
+              <div class="barra">
+                <span style="width: 66%"></span>
+              </div>
+            </li>
+            <li>
+              <div class="metas-fila">
+                <span>Invitaciones</span>
+                <strong>193</strong>
+              </div>
+              <div class="barra">
+                <span style="width: 46%"></span>
+              </div>
+            </li>
+            <li>
+              <div class="metas-fila">
+                <span>Redes pagadas</span>
+                <strong>104</strong>
+              </div>
+              <div class="barra">
+                <span style="width: 25%"></span>
+              </div>
+            </li>
+            <li>
+              <div class="metas-fila">
+                <span>Outbound</span>
+                <strong>61</strong>
+              </div>
+              <div class="barra">
+                <span style="width: 15%"></span>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

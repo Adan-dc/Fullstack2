@@ -1,0 +1,346 @@
+ /* El padding cuenta DENTRO del ancho. Sin esto las cajas se salen. */
+ * { box-sizing: border-box; margin: 0; padding: 0; }
+
+ body {
+   font-family: system-ui, sans-serif;
+   background: #0c0a09;
+   color: #f5f2ed;
+   min-height: 100vh;
+ }
+
+ /* PLANO: 2 columnas. 260px menú, el resto contenido. */
+ .app {
+   display: grid;
+   grid-template-columns: 260px 1fr; /* aca se separa la pagina en dos columnas */
+   min-height: 100vh;
+ }
+
+ .sidebar {
+  background: #14110e;
+  border-right: 1px solid #2c261f;
+  padding: 18px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+ }
+
+ /* Logo: una fila flex. El “mark” son 3 barritas hechas con background. */
+ .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px 18px;
+ }
+ .brand-mark {
+  width: 18px;
+  height: 16px;
+  background:
+    linear-gradient(#f8e538, #f8e538) 0 0 / 4px 16px no-repeat,
+    linear-gradient(#f8e538, #f8e538) 7px 4px / 4px 12px no-repeat,
+    linear-gradient(#f8e538, #f8e538) 14px 8px / 4px 8px no-repeat;
+ }
+ .brand-name {
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+ }
+
+ .menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* casi pegados; el grupo da el aire grande */
+ }
+
+ /* Título de sección: chico, apagado, no compite con el link */
+ .grupo {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a7d6e;
+  padding: 16px 10px 6px;
+ }
+
+ /* ESTO reemplaza tus botones grises */
+ .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  color: #c4b8a8;
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 500;
+ }
+ /* Esto resalta el boton cuando se precione */
+ .nav-link:hover {
+  background: #241f1a;
+  color: #f5f2ed;
+ }
+ .nav-link.activo {
+  background: rgba(56, 189, 248, 0.16);
+  color: #f8e538;
+ }
+
+ /* Iconos simples con CSS (sin imágenes). */
+ .ico-grid {
+  background:
+    currentColor 0 0 / 7px 7px no-repeat,
+    currentColor 11px 0 / 7px 7px no-repeat,
+    currentColor 0 11px / 7px 7px no-repeat,
+    currentColor 11px 11px / 7px 7px no-repeat;
+ }
+
+ .ico-img {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+ }
+
+ /* Columna derecha: topbar arriba, contenido abajo */
+ .topbar {
+  height: 64px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #14110e;
+  border-bottom: 1px solid #2c261f;
+ }
+ .migas {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+ }
+
+ .migas-suave { color: #8a7d6e; }
+ .migas-sep   { color: #8a7d6e; }
+ .migas-aqui  { color: #f5f2ed; font-weight: 600; }
+
+ .busqueda {
+  margin-left: auto;
+ }
+
+ .busqueda input {
+  width: 240px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid #2c261f;
+  border-radius: 999px;
+  background: #1c1917;
+  color: #f5f2ed;
+  outline: none;
+ }
+
+ .busqueda input::placeholder {
+  color: #8a7d6e;
+ }
+ .acciones {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+ }
+
+ .icono-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: #c4b8a8;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+ }
+
+ .icono-btn:hover {
+  background: #241f1a;
+ }
+
+ .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #c4a574;
+  color: #14110e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ .shell {
+   display: flex;
+   flex-direction: column;
+   min-width: 0; /* “puedes encogerte; si el texto no cabe, se corta o pasa de línea, pero no rompas el plano” */
+ }
+
+ .topbar {
+   height: 64px;
+   border-bottom: 1px solid #3a322c;
+   padding: 0 24px; /*0 arriba/abajo, 24px a los lados.*/
+   display: flex;
+   align-items: center;
+   background: #141210;
+ }
+
+ /* acá va el codigo de resumen para abajo incluyendo los graficos */
+
+
+ .content {
+   padding: 24px;
+   display: flex;
+   flex-direction: column;
+   gap: 16px; /* es para que no se sobrepongan */
+ }
+ .btns {
+   padding: 26px;
+   display: flex;
+   flex-direction: column;
+   gap: 16px;
+   color: #c4a574;
+ }
+ .resumen { 
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  /* El marco de la caja */
+  background: #1a1612;
+  border: 1px solid #E8D496;   /* el marco amarillo pastel */
+  border-radius: 16px;         /* esquinas, NO 999px */
+  padding: 24px 28px;          /* aire DENTRO del marco */
+  margin-bottom: 20px;         /* aire FUERA, lo separa de las 4 de abajo */
+ }
+
+ .hero-etiqueta {
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #E8D496;
+  margin-bottom: 8px;
+ }
+
+ .hero-numero {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: white;
+  margin-bottom: 12px;
+ }
+
+ .hero-nota {
+  margin-top: 12px;
+  color: white;
+  font-size: 0.92rem;
+  max-width: 42ch;
+ }
+ /* seccion de 4 cajas */
+ .cajitas {
+   display: grid;
+   grid-template-columns: repeat(4, minmax(0, 1fr));
+   gap: 16px;
+ }
+ .cajaM{
+  /* El marco de la caja */
+  background: #1a1612;
+  border: 1px solid #E8D496;   /* el marco amarillo pastel */
+  border-radius: 16px;         /* esquinas, NO 999px */
+  padding: 24px 28px;          /* aire DENTRO del marco */
+  margin-bottom: 20px;         /* aire FUERA, lo separa de las 4 de abajo */
+ }
+ .caja-titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #E8D496;
+  
+ }
+ .caja-numero {
+  font-size: 1.40rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: white;
+  margin-top: 10px;
+ }
+ .caja-linea {
+  display: block;
+  width: 100%;
+  height: 70px;
+}
+
+/* Parte del grafico */
+.metas-negocio {
+  background: #1a1612;
+  border: 1px solid #2c261f;
+  border-radius: 16px;
+  padding: 22px 24px 18px;
+}
+
+.metas-titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: #E8D496;
+}
+/* esto le quita los puntos a la lista */
+.metas-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+/* esto mueve el titulo a la izquierda y los numeros a la derecha */
+.metas-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.barra {
+  height: 6px;
+  background: #2c261f;     /* el riel gris */
+  border-radius: 999px;
+  overflow: hidden;        /* recorta el relleno si se pasa */
+}
+
+.barra > span {
+  display: block;
+  height: 100%;
+  background: #E8D496;     /* el relleno amarillo pastel */
+  border-radius: 999px;
+}
+
+ .caja {
+   border: 1px dashed #c4a574;
+   border-radius: 12px;
+   padding: 16px;
+   background: rgba(245, 165, 36, 0.06);
+ }
+
+ .caja h2 {
+   font-size: 0.8rem;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
+   color: #f5a524;
+   margin-bottom: 8px;
+ }
+
+ .caja p { color: #a8a29e; font-size: 0.92rem; line-height: 1.4; }
+
+ .sidebar.caja { border-radius: 0; border: none; border-right: 1px dashed #c4a574; }
+ .topbar.caja { border-radius: 0; border: none; border-bottom: 1px dashed #c4a574; }
+
+ @media (max-width: 800px) {
+   .app { grid-template-columns: 1fr; }
+   .cajitas { grid-template-columns: 1fr 1fr; }
+ }
