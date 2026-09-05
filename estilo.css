@@ -3,8 +3,8 @@
 
  body {
    font-family: system-ui, sans-serif;
-   background: #0c0a09;
-   color: #f5f2ed;
+   background: var(--fondo);
+   color: var(--texto);
    min-height: 100vh;
  }
 
@@ -508,4 +508,24 @@
   text-transform: uppercase;
   color: #8a7d6e;
   font-weight: 600;
+}
+
+/* Pagina de configuracion */
+
+:root {
+  --fondo: #0c0a09;
+  --caja: #1a1612;
+  --texto: #f5f2ed;
+  --apagado: #c4b8a8;
+  --linea: #2c261f;
+  --acento: #E8D496;
+}
+
+body.claro {
+  --fondo: #f4efe6;
+  --caja: #fffaf3;
+  --texto: #1c1917;
+  --apagado: #6b6258;
+  --linea: #e4d5b5;
+  --acento: #c4a574;
 }
