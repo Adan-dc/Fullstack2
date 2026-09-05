@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="estilo.css">
+  <title>Dashboard</title>
+</head>
+<body>
+
+  <div class="app">
+    <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <span class="brand-name">ADMIN J&C</span>
+        </div>
+      
+        <nav class="menu">
+          <p class="grupo">Monitoreo</p>
+          <a href="dashboard.html" class="nav-link">
+            <img class="ico-img" src="img/resumen.png">
+            Resumen
+          </a>
+      
+          <p class="grupo">Manejo de productos</p>
+          <a class="nav-link activo">
+            <img class="ico-img" src="img/nuevo.png">
+            Nuevo producto
+          </a>
+          <a href="editar_producto.html" class="nav-link">
+            <img class="ico-img" src="img/editar.png">
+            Editar producto
+          </a>
+          <a href="mostrar_producto.html" class="nav-link">
+            <img class="ico-img" src="img/mostrar-productos.png">
+            Mostrar productos
+          </a>
+      
+          <p class="grupo">Manejo de cuentas</p>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/nuevo.png">
+            Nuevo usuario
+          </a>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/editar.png">
+            Editar usuario
+          </a>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/mostrar-usuarios.png">
+            Mostrar usuarios
+            <span class="badge">0</span>
+          </a>
+      
+          <p class="grupo">Configuraciones</p>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/configuracion.png">
+            Configuración
+          </a>
+        </nav>
+      </aside>
+
+    <div class="shell">
+        <header class="topbar">
+            <nav class="migas">
+              <span class="migas-suave">Atlas Commerce</span>
+              <span class="migas-sep">></span>
+              <span class="migas-aqui">Nuevo producto</span>
+            </nav>
+            <div class="acciones">
+              <button class="icono-btn" type="button">🔔</button>
+              <span class="avatar">J&C</span>
+            </div>
+        </header>
+
+        <!-- Desde acá para arriba todo es igual -->
+
+      <main class="content">
+        <section class="resumen">
+            <form class="form" action="#" method="post">
+                <legend>Nuevo producto</legend>
+          
+                <div class="campo">
+                  <label for="codigo">Código</label>
+                  <input type="text" class="uni-css" name="codigo" placeholder="123456789">
+                  <span class="error" id="mensaje_codigo"></span>
+                </div>
+          
+                <div class="campo">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" class="uni-css" name="nombre" placeholder="Cerveza Cristal">
+                  <span class="error" id="mensaje_nombre"></span>
+                </div>
+          
+                <div class="campo campo--ancho">
+                  <label for="descripcion">Descripción</label>
+                  <textarea class="uni-css" name="descripcion" rows="3" placeholder="Opcional"></textarea>
+                  <span class="error" id="mensaje_descripcion"></span>
+                </div>
+          
+                <div class="form-precio">
+                  <div class="campo">
+                    <label for="precio">Precio</label>
+                    <input type="text" class="uni-css" name="precio" placeholder="$14.900">
+                    <span class="error" id="mensaje_precio"></span>
+                  </div>
+                  <div class="campo">
+                    <label for="stock">Stock</label>
+                    <input type="number" class="uni-css" name="stock" placeholder="20">
+                    <span class="error" id="mensaje_stock"></span>
+                  </div>
+                  <div class="campo">
+                    <label for="stock_critico">Stock crítico</label>
+                    <input type="number" class="uni-css" name="stock_critico" placeholder="5">
+                    <span class="error" id="mensaje_stock_critico"></span>
+                  </div>
+                  <div class="campo">
+                    <label for="categoria">Categoría</label>
+                    <select class="uni-css" name="categoria">
+                      <option value="categoria">Elegir categoría</option>
+                      <option value="cervezas">Cervezas</option>
+                      <option value="ron">Ron</option>
+                      <option value="vodka">Vodka</option>
+                      <option value="bebidas">Bebidas</option>
+                      <option value="vinos">Vinos</option>
+                      <option value="pisco">Pisco</option>
+                      <option value="licores">Licores</option>
+                      <option value="whisky">Whisky</option>
+                    </select>
+                    <span class="error" id="mensaje_categoria"></span>
+                  </div>
+                </div>
+          
+                <div class="campo">
+                  <label for="imagen">Imagen (Opcional)</label>
+                  <input type="file" id="imagen" name="imagen" accept="image/*">
+                  <span class="error" id="mensaje_imagen"></span>
+                </div>
+          
+                <div class="form-acciones">
+                  <button type="reset" class="btnL">Limpiar</button>
+                  <button type="button" class="btnP" onclick="procesar()">Procesar</button>
+                </div>
+            </form>
+          </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

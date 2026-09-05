@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="estilo.css">
+  <title>Dashboard</title>
+</head>
+<body>
+
+  <div class="app">
+    <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <span class="brand-name">ADMIN J&C</span>
+        </div>
+      
+        <nav class="menu">
+          <p class="grupo">Monitoreo</p>
+          <a href="dashboard.html" class="nav-link">
+            <img class="ico-img" src="img/resumen.png">
+            Resumen
+          </a>
+      
+          <p class="grupo">Manejo de productos</p>
+          <a href="nuevo_producto.html" class="nav-link">
+            <img class="ico-img" src="img/nuevo.png">
+            Nuevo producto
+          </a>
+          <a href="editar_producto.html" class="nav-link">
+            <img class="ico-img" src="img/editar.png">
+            Editar producto
+          </a>
+          <a class="nav-link activo">
+            <img class="ico-img" src="img/mostrar-productos.png">
+            Mostrar productos
+          </a>
+      
+          <p class="grupo">Manejo de cuentas</p>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/nuevo.png">
+            Nuevo usuario
+          </a>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/editar.png">
+            Editar usuario
+          </a>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/mostrar-usuarios.png">
+            Mostrar usuarios
+            <span class="badge">0</span>
+          </a>
+      
+          <p class="grupo">Configuraciones</p>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/configuracion.png">
+            Configuración
+          </a>
+        </nav>
+      </aside>
+
+    <div class="shell">
+        <header class="topbar">
+            <nav class="migas">
+              <span class="migas-suave">Atlas Commerce</span>
+              <span class="migas-sep">></span>
+              <span class="migas-aqui">Nuevo producto</span>
+            </nav>
+            <div class="acciones">
+              <button class="icono-btn" type="button">🔔</button>
+              <span class="avatar">J&C</span>
+            </div>
+        </header>
+
+        <!-- Desde acá para arriba todo es igual -->
+
+      <main class="content">
+        <section class="centrar-tabla">
+            <table class="tabla">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Categoría</th>
+                  <th>Precio</th>
+                  <th>Stock</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Coca-cola</td>
+                  <td>Bebidas</td>
+                  <td>$15.990</td>
+                  <td>20</td>
+                  <td><span class="Estado Estado-ok">Activo</span></td>
+                </tr>
+                <tr>
+                  <td>Cabernet Reserva</td>
+                  <td>Vinos</td>
+                  <td>$10.490</td>
+                  <td>5</td>
+                  <td><span class="Estado Estado-bajo">Stock bajo</span></td>
+                </tr>
+                <tr>
+                  <td>Jack Daniells</td>
+                  <td>Whisky</td>
+                  <td>$16.990</td>
+                  <td>0</td>
+                  <td><span class="Estado Estado-sin">Sin stock</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

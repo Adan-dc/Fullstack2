@@ -118,10 +118,6 @@
  .migas-sep   { color: #8a7d6e; }
  .migas-aqui  { color: #f5f2ed; font-weight: 600; }
 
- .busqueda {
-  margin-left: auto;
- }
-
  .busqueda input {
   width: 240px;
   height: 36px;
@@ -137,6 +133,7 @@
   color: #8a7d6e;
  }
  .acciones {
+  margin-left: auto;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -344,3 +341,138 @@
    .app { grid-template-columns: 1fr; }
    .cajitas { grid-template-columns: 1fr 1fr; }
  }
+
+
+
+ /* Pagina de nuevo_producto */
+
+.form{
+  box-sizing: border-box;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form-caja {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.campo label {
+  font-size: 0.82rem;
+  color: #c4b8a8;
+}
+
+.uni-css {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #2c261f;
+  border-radius: 10px;
+  background: #14110e;
+  color: #8a7d6e;
+  outline: none;
+
+  height: auto;
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.form-precio {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-acciones {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.btnL {
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid #2c261f;
+  background: #241f1a;
+  color: #f5f2ed;
+  cursor: pointer;
+}
+
+.btnP{
+  border-radius: 10px;
+  background: #E8D496;
+  color: #14110e;
+  border-color: transparent;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+
+/* Pagina de mostrar los productos en una tabla */
+
+.centrar-tabla {
+  background: #1a1612;
+  border: 1px solid #E8D496;
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  color: #f5f2ed;
+}
+
+.tabla th,
+.tabla td {
+  text-align: left;
+  padding: 14px 12px;
+  border-bottom: 1px solid #2c261f;
+}
+
+.tabla th {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a7d6e;
+  font-weight: 600;
+}
+
+.Estado {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.Estado-ok { background: rgba(52, 211, 153, 0.16);
+   color: #34d399; 
+}
+.Estado-bajo { background: rgba(245, 165, 36, 0.16);
+   color: #E8D496; 
+}
+.Estado-sin { background: rgba(251, 113, 133, 0.16);
+   color: #fb7185; 
+}
