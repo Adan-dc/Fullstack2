@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="estilo.css">
+  <title>Dashboard</title>
+</head>
+<body>
+
+  <div class="app">
+    <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <span class="brand-name">ADMIN J&C</span>
+        </div>
+      
+        <nav class="menu">
+          <p class="grupo">Monitoreo</p>
+          <a href="dashboard.html" class="nav-link">
+            <img class="ico-img" src="img/resumen.png">
+            Resumen
+          </a>
+      
+          <p class="grupo">Manejo de productos</p>
+          <a href="nuevo_producto.html" class="nav-link">
+            <img class="ico-img" src="img/nuevo.png">
+            Nuevo producto
+          </a>
+          <a href="editar_producto.html" class="nav-link">
+            <img class="ico-img" src="img/editar.png">
+            Editar producto
+          </a>
+          <a href="mostrar_producto.html" class="nav-link">
+            <img class="ico-img" src="img/mostrar-productos.png">
+            Mostrar productos
+          </a>
+      
+          <p class="grupo">Manejo de cuentas</p>
+          <a href="nuevo_usuario.html" class="nav-link">
+            <img class="ico-img" src="img/nuevo.png">
+            Nuevo usuario
+          </a>
+          <a class="nav-link activo">
+            <img class="ico-img" src="img/editar.png">
+            Editar usuario
+          </a>
+          <a href="mostrar_usuarios.html" class="nav-link">
+            <img class="ico-img" src="img/mostrar-usuarios.png">
+            Mostrar usuarios
+          </a>
+      
+          <p class="grupo">Configuraciones</p>
+          <a href="#" class="nav-link">
+            <img class="ico-img" src="img/configuracion.png">
+            Configuración
+          </a>
+        </nav>
+      </aside>
+
+    <div class="shell">
+        <header class="topbar">
+            <nav class="migas">
+              <span class="migas-suave">Atlas Commerce</span>
+              <span class="migas-sep">></span>
+              <span class="migas-aqui">Nuevo producto</span>
+            </nav>
+            <div class="acciones">
+              <button class="icono-btn" type="button">🔔</button>
+              <span class="avatar">J&C</span>
+            </div>
+        </header>
+
+        <!-- Desde acá para arriba todo es igual -->
+
+      <main class="content">
+        <section class="resumen">
+            <form class="form" action="#" method="post">
+                <legend>Editar Usuario</legend>
+          
+                <div class="campo">
+                  <label for="run">Run (coloque el rut para modificarlo)</label>
+                  <input type="text" class="uni-css" name="run" placeholder="12345678-9">
+                  <span class="error" id="mensaje_run"></span>
+                </div>
+          
+                <div class="campo">
+                  <label for="nombre">Nombre (Modificar)</label>
+                  <input type="text" class="uni-css" name="nombre" placeholder="Pedro">
+                  <span class="error" id="mensaje_nombre"></span>
+                </div>
+          
+                <div class="campo">
+                  <label for="apellidos">Apellidos (Modificar)</label>
+                  <input type="text" class="uni-css" name="apellidos" placeholder="Galvez Sanchez">
+                  <span class="error" id="mensaje_apellidos"></span>
+                </div>
+          
+                <div class="campo">
+                <label for="correo">Correo (Modificar)</label>
+                <input type="text" class="uni-css" name="correo" placeholder="example@gmail.com">
+                <span class="error" id="mensaje_correo"></span>
+                </div>
+                <div class="campo">
+                <label for="fecha">fecha de nacimiento (Modificar)</label>
+                <input type="date" class="uni-css" name="fecha">
+                <span class="error" id="mensaje_fecha"></span>
+                </div>
+                <div class="campo">
+                <label for="tipo">Tipo de usuario (Modificar)</label>
+                <select class="uni-css" name="categoria">
+                    <option value="categoria">Elegir tipo de usuario</option>
+                    <option value="cervezas">Administrador</option>
+                    <option value="ron">Cliente</option>
+                    <option value="vodka">Vendedor</option>
+                  </select>
+                <span class="error" id="mensaje_tipo"></span>
+                </div>
+                <div class="campo">
+                    <label for="tipo">Region (Modificar)</label>
+                    <select class="uni-css" name="opciones-regiones" required>
+                        <option value="" disabled selected>Seleccione una región</option>
+                        <option value="1">Región de Tarapacá</option>
+                        <option value="2">Región de Antofagasta</option>
+                        <option value="3">Región de Atacama</option>
+                        <option value="4">Región de Coquimbo</option>
+                        <option value="5">Región de Valparaiso</option>
+                        <option value="6">Región del Libertador General Bernardo O'Higgins</option>
+                        <option value="7">Región del Maule</option>
+                        <option value="8">Región del Biobío</option>
+                        <option value="9">Región de la Araucanía</option>
+                        <option value="10">Región de los Lagos</option>
+                        <option value="11">Región de Aysén del General Carlos Ibáñez del Campo</option>
+                        <option value="12">Región de Magallanes y Antártica Chilena</option>
+                        <option value="13">Región Metropolitana de santiago</option>
+                        <option value="14">Región de los Ríos</option>
+                        <option value="15">Región de Arica y Parinacota/option>
+                    </select>
+                    <label for="tipo">Comuna (Modificar)</label>
+                    <select class="uni-css" name="opciones-comunas" required>
+                        <option value="" disabled selected>Elige una opción</option>
+                        <option value="1">Opción 1</option>
+                        <option value="2">Opción 2</option>
+                        <option value="3">Opción 3</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="direccion">Dirección (Modificar)</label>
+                    <input type="text" class="uni-css" name="direccion" placeholder="San Martín 8727">
+                    <span class="error" id="mensaje_direccion"></span>
+                </div>
+                <div class="form-acciones">
+                  <button type="reset" class="btnL">Limpiar</button>
+                  <button type="button" class="btnP" onclick="procesar()">Procesar</button>
+                </div>
+            </form>
+          </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

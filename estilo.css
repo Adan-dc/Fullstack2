@@ -476,3 +476,36 @@
 .Estado-sin { background: rgba(251, 113, 133, 0.16);
    color: #fb7185; 
 }
+
+/* Pagina de mostrar usuarios */
+
+.centrar-tabla-usuario{
+  background: #1a1612;
+  border: 1px solid #E8D496;
+  border-radius: 16px;
+  padding: 20px 24px;
+  overflow-x: auto; /* si no cabe, scrollea la card, no se monta al menú */
+}
+
+.tabla-usuario{
+  width: 100%;
+  border-collapse: collapse;
+  color: #f5f2ed;
+}
+
+.tabla-usuario th,
+.tabla-usuario td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid #2c261f;
+  font-size: 0.88rem;
+  white-space: nowrap; /* una celda no parte el texto en 3 líneas */
+}
+
+.tabla-usuario th {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a7d6e;
+  font-weight: 600;
+}
