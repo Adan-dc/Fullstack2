@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>CONTACTO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="contacto.css">
+</head>
+
+<body>
+  <header class="header-blog">
+    <img class="img-boti" src="img/imagen-boti.png" alt="Logo Botillería">
+    <strong>
+      botilleria J&C
+    </strong>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Productos</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="blog.html">Blogs</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <div class="logo-empresa">
+    <img src="img/imagen-boti.png" alt="botilleria J&C">
+    <h2>botilleria J&C</h2>
+  </div>
+
+  <div class="caja-formulario">
+    <h3 class="titulo-formulario">Formulario de contacto</h3>
+
+    <form class="formulario-contacto"> <!--esta etiqueta agrupa a todos los campos que el usuario va a llenar-->
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre">
+      <label for="correo">Correo</label>
+      <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com">
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje"></textarea>
+      <button type="submit" class="btn-enviar">Enviar mensaje</button>
+    </form>
+  </div>
+</body>
+</html>

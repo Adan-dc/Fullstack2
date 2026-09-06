@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Header reutilizado de blog.css ===== */
+.header-blog {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1e1e20;
+  padding: 15px 50px;
+  color: #ffffff;
+}
+
+.img-boti {
+  max-height: 50px;
+  width: auto;
+}
+
+header nav a {
+  margin: 0 8px;
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+/* ===== Logo + nombre de la empresa ===== */
+.logo-empresa {
+  text-align: center;
+  margin: 40px 0 20px 0;
+}
+
+.logo-empresa img {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.logo-empresa h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #1a1a1a;
+}
+
+/* ===== Caja del formulario ===== */
+.caja-formulario {
+  max-width: 450px;
+  margin: 0 auto 60px auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.titulo-formulario {
+  background-color: #ececec;
+  text-align: center;
+  margin: 0;
+  padding: 12px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 30px;
+}
+
+.formulario-contacto label {
+  font-size: 0.75rem;
+  color: #777;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+  font-family: Arial, sans-serif;
+  resize: vertical;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+  outline: none;
+  border-color: #1e1e20;
+}
+
+.btn-enviar {
+  align-self: center;
+  background-color: #ececec;
+  border: 1px solid #333;
+  padding: 10px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-enviar:hover {
+  background-color: #dcdcdc;
+}
