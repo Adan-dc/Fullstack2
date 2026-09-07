@@ -186,7 +186,17 @@ footer {
     text-align: center;
     margin-top: 15px;
 }
+.input-error {
+    border-color: #dc3545 !important;
+}
 
+.texto-error {
+    color: #dc3545;
+    font-size: 13px;
+    display: block;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
 /* HOME (CATEGORÍAS Y TARJETAS)           */
 .seccion-categoria {
     margin-bottom: 50px;

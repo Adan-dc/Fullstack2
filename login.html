@@ -57,63 +57,90 @@
     }
   ];
 
-  function iniciarSesion() {
-    const correo = document.getElementById("correo").value.trim().toLowerCase();
-    const clave = document.getElementById("clave").value.trim();
+    function iniciarSesion() {
+        const correo = document.getElementById("correo").value.trim().toLowerCase();
+        const clave = document.getElementById("clave").value.trim();
 
-    // 1. Validar correo obligatorio
-    if (!correo) {
-      alert("El correo es obligatorio.");
-      return;
+        document.querySelectorAll('.texto-error').forEach(el => el.remove());
+        document.querySelectorAll('.input-estandar').forEach(el => el.classList.remove('input-error'));
+
+        let hayError = false;
+
+        function marcarError(idCampo, mensaje) {
+            const campo = document.getElementById(idCampo);
+            campo.classList.add('input-error'); 
+            
+            const spanError = document.createElement('span');
+            spanError.className = 'texto-error'; 
+            spanError.innerText = mensaje;
+            
+            campo.parentNode.insertBefore(spanError, campo.nextSibling);
+            hayError = true;
+        }
+
+        if (!correo) {
+            marcarError("correo", "El correo es obligatorio.");
+        } else if (correo.length > 100) {
+            marcarError("correo", "El correo no puede superar los 100 caracteres.");
+        } else {
+            const dominiosPermitidos = ['@duoc.cl', '@profesor.duoc.cl', '@gmail.com'];
+            const correoValido = dominiosPermitidos.some(dominio => correo.endsWith(dominio));
+            if (!correoValido) {
+                marcarError("correo", "El correo solo puede terminar en @duoc.cl, @profesor.duoc.cl o @gmail.com");
+            }
+        }
+
+        if (!clave) {
+            marcarError("clave", "La contraseña es obligatoria.");
+        } else if (clave.length < 4 || clave.length > 10) {
+            marcarError("clave", "La contraseña debe tener entre 4 y 10 caracteres.");
+        }
+
+        if (hayError) return;
+
+        const cuentaEncontrada = cuentas.find(c => c.correo === correo && c.clave === clave);
+
+        if (!cuentaEncontrada) {
+            marcarError("correo", "El correo o la contraseña son incorrectos");
+            marcarError("clave", "El correo o la contraseña son incorrectos");
+            return;
+        }
+
+        localStorage.setItem("rolUsuario", cuentaEncontrada.rol);
+        localStorage.setItem("usuarioActivo", cuentaEncontrada.correo);
+
+        if (cuentaEncontrada.rol === "administrador") {
+            window.location.href = "dashboard.html";
+        } else if (cuentaEncontrada.rol === "vendedor") {
+            window.location.href = "mostrar_producto.html";
+        } else {
+            window.location.href = "index.html";
+        }
     }
 
-    // 2. Validar máximo 100 caracteres
-    if (correo.length > 100) {
-      alert("El correo no puede superar los 100 caracteres.");
-      return;
+    function cerrarSesion() {
+        localStorage.removeItem("usuarioActivo");
+        localStorage.removeItem("rolUsuario");
+        alert("¡Sesión cerrada con éxito!");
+        window.location.href = "index.html";
     }
 
-    // 3. Validar dominios permitidos
-    const dominiosPermitidos = ['@duoc.cl', '@profesor.duoc.cl', '@gmail.com'];
-    const correoValido = dominiosPermitidos.some(dominio => correo.endsWith(dominio));
-    if (!correoValido) {
-      alert("El correo solo puede terminar en @duoc.cl, @profesor.duoc.cl o @gmail.com");
-      return;
+    function verificarEstadoSesion() {
+        const usuarioActivo = localStorage.getItem("usuarioActivo");
+        const btnLogin = document.getElementById("btn-login");
+        const btnLogout = document.getElementById("btn-logout");
+
+        if (usuarioActivo) {
+            if (btnLogin) btnLogin.style.display = "none";
+            if (btnLogout) btnLogout.style.display = "inline";
+        } else {
+            if (btnLogin) btnLogin.style.display = "inline";
+            if (btnLogout) btnLogout.style.display = "none";
+        }
     }
 
-    if (!clave) {
-      alert("La contraseña es obligatoria.");
-      return;
-    }
+    document.addEventListener("DOMContentLoaded", verificarEstadoSesion);
 
-    if (clave.length < 4 || clave.length > 10) {
-      alert("La contraseña debe tener entre 4 y 10 caracteres.");
-      return;
-    }
-
-    const cuentaEncontrada = cuentas.find(function (cuenta) {
-      return (
-        cuenta.correo === correo &&
-        cuenta.clave === clave
-      );
-    });
-
-    if (!cuentaEncontrada) {
-      alert("El correo o la contraseña son incorrectos");
-      return;
-    }
-
-    localStorage.setItem("rolUsuario", cuentaEncontrada.rol);
-    localStorage.setItem("usuarioActivo", cuentaEncontrada.correo);
-
-    if (cuentaEncontrada.rol === "administrador") {
-      window.location.href = "dashboard.html";
-    } else if (cuentaEncontrada.rol === "vendedor") {
-      window.location.href = "mostrar_producto.html";
-    } else {
-      window.location.href = "index.html";
-    }
-  }
   function cerrarSesion() {
       localStorage.removeItem("usuarioActivo");
       localStorage.removeItem("rolUsuario");
