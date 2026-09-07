@@ -528,3 +528,13 @@
 .invalido {
   color: red;
 }
+
+/* Vista limitada para el vendedor */
+.vista-vendedor .sidebar {
+  display: none;
+}
+
+.vista-vendedor .shell {
+  margin-left: 0;
+  width: 100%;
+}

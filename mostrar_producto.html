@@ -782,5 +782,34 @@
   <div class="shell">
     <footer class="pie">Desarrollado por GG AT MC<a href="#"><img class="img" src="img/J&C.png" alt="J&amp;C"></a></footer>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const rol = (
+        localStorage.getItem("rolUsuario") || ""
+      ).toLowerCase();
+  
+      // No existe una sesión iniciada
+      if (!rol) {
+        window.location.replace("iniciar_sesion.html");
+        return;
+      }
+  
+      // El cliente solamente entra a la tienda
+      if (rol === "cliente") {
+        window.location.replace("index.html");
+        return;
+      }
+  
+      // El vendedor puede ver productos, pero sin menú administrativo
+      if (rol === "vendedor") {
+        document.body.classList.add("vista-vendedor");
+      }
+  
+      // El administrador puede ver la página completa
+      if (rol === "administrador") {
+        document.body.classList.remove("vista-vendedor");
+      }
+    });
+  </script>
 </body>
 </html>
