@@ -64,6 +64,9 @@
         </fieldset>
         <p class="link-login"><a href="login.html">INICIAR SESION</a></p>
   <script>
+    if (localStorage.getItem("usuarioActivo")) {
+        window.location.href = "index.html";
+    }
     const datosRegiones = {
         "1": ["Alto Hospicio", "Camiña", "Colchane", "Huara","Iquique","Pique","Pica","Pozo Almonte"],
         "2": ["Antofagasta", "Calama", "Maria Elena", "Mejillones","Ollagüe","San Pedro de Atacama","Sierra Gorda","TalTal","Tocopilla"],

@@ -56,7 +56,9 @@
       rol: "cliente"
     }
   ];
-
+    if (localStorage.getItem("usuarioActivo")) {
+        window.location.href = "index.html";
+    }
     function iniciarSesion() {
         const correo = document.getElementById("correo").value.trim().toLowerCase();
         const clave = document.getElementById("clave").value.trim();
