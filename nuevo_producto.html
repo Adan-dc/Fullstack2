@@ -5,6 +5,143 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="estilo.css">
   <title>Dashboard</title>
+<script>
+  function validarcodigo() {
+      const form = document.getElementById("form");
+      const datosForm = new FormData(form);
+      const letras = "abcdefghijklmnñopqrstuvwxyzáéíóú";
+      codigo_ingresado = datosForm.get("codigo").trim().toLowerCase();
+      let soloLetras = codigo_ingresado.length >= 3;
+
+      for (let i = 0; i < codigo_ingresado.length; i++) {
+          const caracter = codigo_ingresado[i];
+      if (!letras.includes(caracter)) {
+          soloLetras = false;
+          }
+      }
+      if(soloLetras == true){
+        let caja_error = document.getElementById("mensaje_codigo");
+        caja_error.innerHTML = "El codigo ingresado es valido";
+        caja_error.className = "valido";
+      }
+      else {
+          let caja_error = document.getElementById("mensaje_codigo");
+          caja_error.innerHTML = "El codigo ingresado no es valido";
+          caja_error.className = "invalido";
+      }
+    }
+    function validarnombre() {
+      const form = document.getElementById("form");
+      const datosForm = new FormData(form);
+      nombre_ingresado = datosForm.get("nombre")
+      var valido = isNaN(nombre_ingresado);
+      valido = valido && (nombre_ingresado.length <= 100);
+      if(valido == true){
+        let caja_error = document.getElementById("mensaje_nombre");
+        caja_error.innerHTML = "El nombre ingresado es valido";
+        caja_error.className = "valido";
+      }
+      else {
+          let caja_error = document.getElementById("mensaje_nombre");
+          caja_error.innerHTML = "El nombre ingresado no es valido";
+          caja_error.className = "invalido";
+      }
+    }
+    function validardescripcion() {
+      const form = document.getElementById("form");
+      const datosForm = new FormData(form);
+      descripcion = datosForm.get("descripcion")
+      var valido = isNaN(descripcion);
+      valido = valido && (descripcion.length <= 500) || (descripcion.length === 0);
+      if(valido == true){
+        let caja_error = document.getElementById("mensaje_descripcion");
+        caja_error.innerHTML = "La descripcion ingresada es valida";
+        caja_error.className = "valido";
+      }
+      else {
+          let caja_error = document.getElementById("mensaje_descripcion");
+          caja_error.innerHTML = "La descripcion ingresada no es valida";
+          caja_error.className = "invalido";
+      }
+    }
+    function validarprecio() {
+      const form = document.getElementById("form");
+      const datosForm = new FormData(form);
+      precio = datosForm.get("precio")
+      const numero = Number(precio); // aca transformo el texto a number
+      const valido = precio.length > 0 && !isNaN(numero) && numero >= 0;
+      if (valido) {
+        let caja_error = document.getElementById("mensaje_precio");
+        caja_error.innerHTML = "El precio es valido";
+        caja_error.className = "valido";
+      }
+      else if (valido && numero === 0 ) {
+        let caja_error = document.getElementById("mensaje_precio");
+        caja_error.innerHTML = "Producto FREE";
+        caja_error.className = "valido";
+      }
+      else {
+        let caja_error = document.getElementById("mensaje_precio");
+        caja_error.innerHTML = "Ingresa un precio de 0 o más";
+        caja_error.className = "invalido";
+      }
+    }
+    function validarstock() {
+      const form = document.getElementById("form");
+      const datosForm = new FormData(form);
+      stock = datosForm.get("stock")
+      const numero = Number(stock); // aca transformo el texto a number
+      const valido = stock.length > 0 && !isNaN(numero) && numero >= 0;
+      if (valido) {
+        let caja_error = document.getElementById("mensaje_stock");
+        caja_error.innerHTML = "El stock es valido";
+        caja_error.className = "valido";
+      }
+      else {
+        let caja_error = document.getElementById("mensaje_stock");
+        caja_error.innerHTML = "Ingresa un stock de 0 o más";
+        caja_error.className = "invalido";
+      }
+    }
+    function validarstockC() {
+      const form = document.getElementById("form");
+      const datosForm = new FormData(form);
+      stock = datosForm.get("stock_critico");
+      const numero = Number(stock);
+      const valido = stock.length >= 0 && !isNaN(numero) && numero >= 0;
+
+      if (valido) {
+        let caja_error = document.getElementById("mensaje_stock_critico");
+        caja_error.innerHTML = "El stock es valido";
+        caja_error.className = "valido";
+
+        const stockActual = Number(datosForm.get("stock"));
+        if (stockActual <= numero) {
+          alert("Alerta: el stock está igual o por debajo del crítico");
+        }
+      } else {
+        let caja_error = document.getElementById("mensaje_stock_critico");
+        caja_error.innerHTML = "Ingresa un stock de 0 o más";
+        caja_error.className = "invalido";
+      }
+    }
+    function validarcategoria() {
+      const form = document.getElementById("form");
+      const datos = new FormData(form);
+      const categoria = datos.get("categoria");
+      const valido = categoria !== "";
+
+      if (valido) {
+        let caja_error = document.getElementById("mensaje_categoria");
+        caja_error.innerHTML = "Categoría seleccionada";
+        caja_error.className = "valido";
+      } else {
+        let caja_error = document.getElementById("mensaje_categoria");
+        caja_error.innerHTML = "Elige una categoría";
+        caja_error.className = "invalido";
+      }
+    }
+</script>
 </head>
 <body>
 
@@ -69,12 +206,12 @@
 
       <main class="content">
         <section class="resumen">
-            <form class="form" action="#" method="post">
+            <form class="form" id="form" method="post">
                 <legend>Nuevo producto</legend>
           
                 <div class="campo">
-                  <label for="codigo">Código</label>
-                  <input type="text" class="uni-css" name="codigo" placeholder="123456789">
+                  <label for="codigo">Código (minimo 3 letras)</label>
+                  <input type="text" class="uni-css" name="codigo" placeholder="LORTWED">
                   <span class="error" id="mensaje_codigo"></span>
                 </div>
           
@@ -89,38 +226,35 @@
                   <textarea class="uni-css" name="descripcion" rows="3" placeholder="Opcional"></textarea>
                   <span class="error" id="mensaje_descripcion"></span>
                 </div>
-          
-                <div class="form-precio">
-                  <div class="campo">
-                    <label for="precio">Precio</label>
-                    <input type="text" class="uni-css" name="precio" placeholder="$14.900">
-                    <span class="error" id="mensaje_precio"></span>
-                  </div>
-                  <div class="campo">
-                    <label for="stock">Stock</label>
-                    <input type="number" class="uni-css" name="stock" placeholder="20">
-                    <span class="error" id="mensaje_stock"></span>
-                  </div>
-                  <div class="campo">
-                    <label for="stock_critico">Stock crítico</label>
-                    <input type="number" class="uni-css" name="stock_critico" placeholder="5">
-                    <span class="error" id="mensaje_stock_critico"></span>
-                  </div>
-                  <div class="campo">
-                    <label for="categoria">Categoría</label>
-                    <select class="uni-css" name="categoria">
-                      <option value="categoria">Elegir categoría</option>
-                      <option value="cervezas">Cervezas</option>
-                      <option value="ron">Ron</option>
-                      <option value="vodka">Vodka</option>
-                      <option value="bebidas">Bebidas</option>
-                      <option value="vinos">Vinos</option>
-                      <option value="pisco">Pisco</option>
-                      <option value="licores">Licores</option>
-                      <option value="whisky">Whisky</option>
-                    </select>
-                    <span class="error" id="mensaje_categoria"></span>
-                  </div>
+                <div class="campo">
+                  <label for="precio">Precio</label>
+                  <input type="text" class="uni-css" name="precio" placeholder="14900">
+                  <span class="error" id="mensaje_precio"></span>
+                </div>
+                <div class="campo">
+                  <label for="stock">Stock</label>
+                  <input type="number" class="uni-css" name="stock" placeholder="20">
+                  <span class="error" id="mensaje_stock"></span>
+                </div>
+                <div class="campo">
+                  <label for="stock_critico">Stock crítico</label>
+                  <input type="number" class="uni-css" name="stock_critico" placeholder="5">
+                  <span class="error" id="mensaje_stock_critico"></span>
+                </div>
+                <div class="campo">
+                  <label for="categoria">Categoría</label>
+                  <select class="uni-css" name="categoria">
+                    <option value="">Elegir categoría</option>
+                    <option value="cervezas">Cervezas</option>
+                    <option value="ron">Ron</option>
+                    <option value="vodka">Vodka</option>
+                    <option value="bebidas">Bebidas</option>
+                    <option value="vinos">Vinos</option>
+                    <option value="pisco">Pisco</option>
+                    <option value="licores">Licores</option>
+                    <option value="whisky">Whisky</option>
+                  </select>
+                  <span class="error" id="mensaje_categoria"></span>
                 </div>
           
                 <div class="campo">
@@ -131,12 +265,16 @@
           
                 <div class="form-acciones">
                   <button type="reset" class="btnL">Limpiar</button>
-                  <button type="button" class="btnP" onclick="procesar()">Procesar</button>
+                  <button type="button" class="btnP" onclick="validarcodigo(); validarnombre(); validardescripcion();
+                          validarprecio(); validarstock(); validarstockC(); validarcategoria()">Procesar</button>
                 </div>
             </form>
           </section>
       </main>
     </div>
+  </div>
+  <div class="shell">
+    <footer class="pie">Desarrollado por GG AT MC<a href="#"><img class="img" src="img/J&C.png" alt="J&amp;C"></a></footer>
   </div>
 </body>
 </html>

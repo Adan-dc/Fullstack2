@@ -5,6 +5,143 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="estilo.css">
   <title>Dashboard</title>
+<script>
+    function validarcodigo() {
+        const form = document.getElementById("form");
+        const datosForm = new FormData(form);
+        const letras = "abcdefghijklmnñopqrstuvwxyzáéíóú";
+        codigo_ingresado = datosForm.get("codigo").trim().toLowerCase();
+        let soloLetras = codigo_ingresado.length >= 3;
+  
+        for (let i = 0; i < codigo_ingresado.length; i++) {
+            const caracter = codigo_ingresado[i];
+        if (!letras.includes(caracter)) {
+            soloLetras = false;
+            }
+        }
+        if(soloLetras == true){
+          let caja_error = document.getElementById("mensaje_codigo");
+          caja_error.innerHTML = "El codigo ingresado es valido";
+          caja_error.className = "valido";
+        }
+        else {
+            let caja_error = document.getElementById("mensaje_codigo");
+            caja_error.innerHTML = "El codigo ingresado no es valido";
+            caja_error.className = "invalido";
+        }
+      }
+      function validarnombre() {
+        const form = document.getElementById("form");
+        const datosForm = new FormData(form);
+        nombre_ingresado = datosForm.get("nombre")
+        var valido = isNaN(nombre_ingresado);
+        valido = valido && (nombre_ingresado.length < 100);
+        if(valido == true){
+          let caja_error = document.getElementById("mensaje_nombre");
+          caja_error.innerHTML = "El nombre ingresado es valido";
+          caja_error.className = "valido";
+        }
+        else {
+            let caja_error = document.getElementById("mensaje_nombre");
+            caja_error.innerHTML = "El nombre ingresado no es valido";
+            caja_error.className = "invalido";
+        }
+      }
+      function validardescripcion() {
+        const form = document.getElementById("form");
+        const datosForm = new FormData(form);
+        descripcion = datosForm.get("descripcion")
+        var valido = isNaN(descripcion);
+        valido = valido && (descripcion.length < 100) || (descripcion.length === 0);
+        if(valido == true){
+          let caja_error = document.getElementById("mensaje_descripcion");
+          caja_error.innerHTML = "La descripcion ingresada es valida";
+          caja_error.className = "valido";
+        }
+        else {
+            let caja_error = document.getElementById("mensaje_descripcion");
+            caja_error.innerHTML = "La descripcion ingresada no es valida";
+            caja_error.className = "invalido";
+        }
+      }
+      function validarprecio() {
+        const form = document.getElementById("form");
+        const datosForm = new FormData(form);
+        precio = datosForm.get("precio")
+        const numero = Number(precio); // aca transformo el texto a number
+        const valido = precio.length > 0 && !isNaN(numero) && numero >= 0;
+        if (valido) {
+          let caja_error = document.getElementById("mensaje_precio");
+          caja_error.innerHTML = "El precio es valido";
+          caja_error.className = "valido";
+        }
+        else if (valido && numero === 0 ) {
+          let caja_error = document.getElementById("mensaje_precio");
+          caja_error.innerHTML = "Producto FREE";
+          caja_error.className = "valido";
+        }
+        else {
+          let caja_error = document.getElementById("mensaje_precio");
+          caja_error.innerHTML = "Ingresa un precio de 0 o más";
+          caja_error.className = "invalido";
+        }
+      }
+      function validarstock() {
+        const form = document.getElementById("form");
+        const datosForm = new FormData(form);
+        stock = datosForm.get("stock")
+        const numero = Number(stock); // aca transformo el texto a number
+        const valido = stock.length > 0 && !isNaN(numero) && numero >= 0;
+        if (valido) {
+          let caja_error = document.getElementById("mensaje_stock");
+          caja_error.innerHTML = "El stock es valido";
+          caja_error.className = "valido";
+        }
+        else {
+          let caja_error = document.getElementById("mensaje_stock");
+          caja_error.innerHTML = "Ingresa un stock de 0 o más";
+          caja_error.className = "invalido";
+        }
+      }
+      function validarstockC() {
+        const form = document.getElementById("form");
+        const datosForm = new FormData(form);
+        stock = datosForm.get("stock_critico");
+        const numero = Number(stock);
+        const valido = stock.length >= 0 && !isNaN(numero) && numero >= 0;
+  
+        if (valido) {
+          let caja_error = document.getElementById("mensaje_stock_critico");
+          caja_error.innerHTML = "El stock es valido";
+          caja_error.className = "valido";
+  
+          const stockActual = Number(datosForm.get("stock"));
+          if (stockActual <= numero) {
+            alert("Alerta: el stock está igual o por debajo del crítico");
+          }
+        } else {
+          let caja_error = document.getElementById("mensaje_stock_critico");
+          caja_error.innerHTML = "Ingresa un stock de 0 o más";
+          caja_error.className = "invalido";
+        }
+      }
+      function validarcategoria() {
+        const form = document.getElementById("form");
+        const datos = new FormData(form);
+        const categoria = datos.get("categoria");
+        const valido = categoria !== "";
+  
+        if (valido) {
+          let caja_error = document.getElementById("mensaje_categoria");
+          caja_error.innerHTML = "Categoría seleccionada";
+          caja_error.className = "valido";
+        } else {
+          let caja_error = document.getElementById("mensaje_categoria");
+          caja_error.innerHTML = "Elige una categoría";
+          caja_error.className = "invalido";
+        }
+      }
+</script>
 </head>
 <body>
 
@@ -57,7 +194,7 @@
             <nav class="migas">
               <span class="migas-suave">Atlas Commerce</span>
               <span class="migas-sep">></span>
-              <span class="migas-aqui">Nuevo producto</span>
+              <span class="migas-aqui">Editar producto</span>
             </nav>
             <div class="acciones">
               <button class="icono-btn" type="button">🔔</button>
@@ -69,12 +206,127 @@
 
       <main class="content">
         <section class="resumen">
-            <form class="form" action="#" method="post">
+            <form class="form" id="form" method="post">
                 <legend>Editar producto</legend>
           
                 <div class="campo">
-                  <label for="codigo">Código (Ocupar el codigo del producto a editar)</label>
-                  <input type="text" class="uni-css" name="codigo" placeholder="123456789">
+                  <label for="codigo">Seleccione el producto que desea modificar</label>
+                
+                  <input
+                    type="text"
+                    id="codigo"
+                    name="codigo"
+                    class="uni-css"
+                    list="lista-productos"
+                    placeholder="Escriba un código o nombre"
+                    autocomplete="off"
+                  >
+                
+                  <datalist id="lista-productos">
+                    <option value="PRODA" label="Six pack cerveza Escudo Silver lata 473 cc"></option>
+                    <option value="PRODB" label="Six pack cerveza Escudo lata 473 cc"></option>
+                    <option value="PRODC" label="Six pack cerveza Cristal lata 473 cc"></option>
+                    <option value="PRODD" label="Six pack cerveza Becker lata 473 cc"></option>
+                    <option value="PRODE" label="Six pack cerveza Royal lata 473 cc"></option>
+                    <option value="PRODF" label="Six pack cerveza Heineken lata 473 cc"></option>
+                    <option value="PRODG" label="Six pack cerveza Miller 355 cc"></option>
+                    <option value="PRODH" label="Six pack cerveza Corona 355 cc"></option>
+                    <option value="PRODI" label="Cerveza Corona 710 cc"></option>
+                    <option value="PRODJ" label="Cerveza Miller 650 cc"></option>
+                    <option value="PRODK" label="Cerveza Kunstmann Torobayo 500 cc"></option>
+                    <option value="PRODL" label="Lemon Stones lata 350 cc"></option>
+                    <option value="PRODM" label="Lemon Stones maracuyá lata 350 cc"></option>
+                    <option value="PRODN" label="Cerveza Stella Artois 660 cc"></option>
+                    <option value="PRODO" label="Cerveza Volcanes del Sur chocolate/naranja"></option>
+                    <option value="PRODP" label="Cerveza Volcanes del Sur lúcuma"></option>
+                    <option value="PRODQ" label="Cerveza Volcanes del Sur Doppelbock"></option>
+                    <option value="PRODR" label="Cerveza Budweiser latón 740 cc"></option>
+                    <option value="PRODS" label="Ron Barceló añejo 750 cc"></option>
+                    <option value="PRODT" label="Ron Cabo Viejo 750 ml"></option>
+                    <option value="PRODU" label="Ron Havana Club Especial 750 cc"></option>
+                    <option value="PRODV" label="Petacón Ron Barceló 375 cc"></option>
+                    <option value="PRODW" label="Ron Bacardí Carta Oro 750 cc"></option>
+                    <option value="PRODX" label="Ron Bacardí Carta Blanca 1 lt"></option>
+                    <option value="PRODY" label="Spirit Blue Berry"></option>
+                    <option value="PRODZ" label="Spirit Piña"></option>
+                  
+                    <option value="PRODAA" label="Spirit Limón"></option>
+                    <option value="PRODAB" label="Vodka Eristoff Black 700 cc"></option>
+                    <option value="PRODAC" label="Vodka Eristoff 700 cc"></option>
+                    <option value="PRODAD" label="Bebida Coca-Cola 3 litros"></option>
+                    <option value="PRODAE" label="Bebida Fanta 3 litros"></option>
+                    <option value="PRODAF" label="Bebida Sprite 3 litros"></option>
+                    <option value="PRODAG" label="Monster Energy 473 cc"></option>
+                    <option value="PRODAH" label="Jugo Watts piña 1,5 lt"></option>
+                    <option value="PRODAI" label="Jugo Watts durazno 1,5 lt"></option>
+                    <option value="PRODAJ" label="Jugo Watts naranja 1,5 lt"></option>
+                    <option value="PRODAK" label="Jugo Watts tutti frutilla 1,5 lt"></option>
+                    <option value="PRODAL" label="Bebida Limón Soda 3 litros"></option>
+                    <option value="PRODAM" label="Bebida Orange Crush 3 litros"></option>
+                    <option value="PRODAN" label="Bebida Kem 3 litros"></option>
+                    <option value="PRODAO" label="Bebida Pap 3 litros"></option>
+                    <option value="PRODAP" label="Bebida Bilz 3 litros"></option>
+                    <option value="PRODAQ" label="Bebida Canada Dry 3 litros"></option>
+                    <option value="PRODAR" label="Energética Red Bull 250 ml"></option>
+                    <option value="PRODAS" label="Vino Santa Helena blanco 2 lt"></option>
+                    <option value="PRODAT" label="Vino Santa Helena tinto 2 lt"></option>
+                    <option value="PRODAU" label="Vino 120 tinto 2 litros"></option>
+                    <option value="PRODAV" label="Vino Gato Cabernet Sauvignon 2 litros"></option>
+                    <option value="PRODAW" label="Vino Bodega tinto 2 litros"></option>
+                    <option value="PRODAX" label="Vino Bodega blanco 2 litros"></option>
+                    <option value="PRODAY" label="Botellón Gran 120 Cabernet Sauvignon 1,5 lt"></option>
+                    <option value="PRODAZ" label="Undurraga Pinot Merlot 750 ml"></option>
+                  
+                    <option value="PRODBA" label="Botellón Exportación Selecto Cabernet Sauvignon"></option>
+                    <option value="PRODBB" label="Botellón Exportación Selecto Merlot"></option>
+                    <option value="PRODBC" label="Botellón Clos de Pirque Cabernet Sauvignon"></option>
+                    <option value="PRODBD" label="Botellón Clos de Pirque Merlot"></option>
+                    <option value="PRODBE" label="Vino Bodega Uno tinto 1 lt"></option>
+                    <option value="PRODBF" label="Vino Bodega Uno blanco 1 lt"></option>
+                    <option value="PRODBG" label="Vino Santa Helena tinto 1 lt"></option>
+                    <option value="PRODBH" label="Vino 120 tinto 1 lt"></option>
+                    <option value="PRODBI" label="Vino 120 blanco 1 lt"></option>
+                    <option value="PRODBJ" label="Vino Clos de Pirque tinto 1 lt"></option>
+                    <option value="PRODBK" label="Vino Gato tinto 1 lt"></option>
+                    <option value="PRODBL" label="Vino Gato Merlot 1 lt"></option>
+                    <option value="PRODBM" label="Vino Gato blanco 1 lt"></option>
+                    <option value="PRODBN" label="Vino Bodega Uno tinto 500 cc"></option>
+                    <option value="PRODBO" label="Vino Bodega Uno blanco 500 cc"></option>
+                    <option value="PRODBP" label="Vino Santa Helena tinto 500 cc"></option>
+                    <option value="PRODBQ" label="Vino Santa Helena blanco 500 cc"></option>
+                    <option value="PRODBR" label="Vino 120 tinto 500 cc"></option>
+                    <option value="PRODBS" label="Vino 120 blanco 500 cc"></option>
+                    <option value="PRODBT" label="Vino Undurraga Pinot Cabernet Sauvignon"></option>
+                    <option value="PRODBU" label="Martini Rosso"></option>
+                    <option value="PRODBV" label="Martini Blanco"></option>
+                    <option value="PRODBW" label="Cognac Tres Palos 1 litro"></option>
+                    <option value="PRODBX" label="Capel Mix Toffee Cream 700 ml"></option>
+                    <option value="PRODBY" label="Aguardiente Doñihue 900 cc"></option>
+                    <option value="PRODBZ" label="Santo Mojito Cocktail 750 cc"></option>
+                  
+                    <option value="PRODCA" label="Santa Margarita Fresa Cocktail 750 cc"></option>
+                    <option value="PRODCB" label="Campanario Piña Colada 700 cc"></option>
+                    <option value="PRODCC" label="Campanario Chirimoya Colada 700 cc"></option>
+                    <option value="PRODCD" label="Campanario Lúcuma Colada 700 cc"></option>
+                    <option value="PRODCE" label="Campanario Mango Colado 700 cc"></option>
+                    <option value="PRODCF" label="Tequila Blanco Sombrero Negro 750 ml"></option>
+                    <option value="PRODCG" label="Pisco Mal Paso 40° 750 cc"></option>
+                    <option value="PRODCH" label="Pisco Mistral 35° 1 litro"></option>
+                    <option value="PRODCI" label="Pisco Bauzá 35° 750 cc"></option>
+                    <option value="PRODCJ" label="Pisco Campanario Mango 750 cc"></option>
+                    <option value="PRODCK" label="Pisco Campanario Sour 750 cc"></option>
+                    <option value="PRODCL" label="Pisco Secreto Peruano Sour 1 litro"></option>
+                    <option value="PRODCM" label="Pisco Secreto Peruano Mango 1 litro"></option>
+                    <option value="PRODCN" label="Pisco Capel Especial 35° 1 litro"></option>
+                    <option value="PRODCO" label="Pisco Capel Sour 750 cc"></option>
+                    <option value="PRODCP" label="Pisco Capel Mango 750 cc"></option>
+                    <option value="PRODCQ" label="Whisky Red Label 750 cc"></option>
+                    <option value="PRODCR" label="Whisky Ballantine's Finest 1 litro"></option>
+                    <option value="PRODCS" label="Whisky VAT 69 750 cc"></option>
+                    <option value="PRODCT" label="Whisky Jack Daniel's Honey 750 cc"></option>
+                    <option value="PRODCU" label="Baileys Original"></option>
+                  </datalist>
+                
                   <span class="error" id="mensaje_codigo"></span>
                 </div>
           
@@ -89,11 +341,9 @@
                   <textarea class="uni-css" name="descripcion" rows="3" placeholder="Opcional"></textarea>
                   <span class="error" id="mensaje_descripcion"></span>
                 </div>
-          
-                <div class="form-precio">
                   <div class="campo">
                     <label for="precio">Precio (Cambiar precio)</label>
-                    <input type="text" class="uni-css" name="precio" placeholder="$14.900">
+                    <input type="text" class="uni-css" name="precio" placeholder="14900">
                     <span class="error" id="mensaje_precio"></span>
                   </div>
                   <div class="campo">
@@ -109,7 +359,7 @@
                   <div class="campo">
                     <label for="categoria">Categoría (Cambiar categoria)</label>
                     <select class="uni-css" name="categoria">
-                      <option value="categoria">Elegir categoría</option>
+                      <option value="">Elegir categoría</option>
                       <option value="cervezas">Cervezas</option>
                       <option value="ron">Ron</option>
                       <option value="vodka">Vodka</option>
@@ -121,7 +371,6 @@
                     </select>
                     <span class="error" id="mensaje_categoria"></span>
                   </div>
-                </div>
           
                 <div class="campo">
                   <label for="imagen">Imagen (cambiar foto)</label>
@@ -131,12 +380,16 @@
           
                 <div class="form-acciones">
                   <button type="reset" class="btnL">Limpiar</button>
-                  <button type="button" class="btnP" onclick="procesar()">Procesar</button>
+                  <button type="button" class="btnP" onclick="validarcodigo(); validarnombre(); validardescripcion();
+                          validarprecio(); validarstock(); validarstockC(); validarcategoria()">Procesar</button>
                 </div>
             </form>
           </section>
       </main>
     </div>
+  </div>
+  <div class="shell">
+    <footer class="pie">Desarrollado por GG AT MC<a href="#"><img class="img" src="img/J&C.png" alt="J&amp;C"></a></footer>
   </div>
 </body>
 </html>

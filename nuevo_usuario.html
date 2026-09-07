@@ -5,6 +5,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="estilo.css">
   <title>Dashboard</title>
+<script>
+  function validarRut() {
+      const form = document.getElementById("form");
+      const datosForm = new FormData(form);
+      var rutCompleto = datosForm.get("run");
+      // leva el \. porque el . solo significa cualquier caracter
+      rutCompleto = rutCompleto.replace(/\./g, "").replace(/-/g, "").toUpperCase();
+
+      var numero = rutCompleto.slice(0, -1);
+      var dvIngresado = rutCompleto.slice(-1);
+
+      var suma = 0;
+      var multiplicador = 2;
+
+      for (var i = numero.length - 1; i >= 0; i--) {
+          suma += parseInt(numero[i]) * multiplicador;
+          // (condicion) ? si es true : si es false
+          // condición ? valorSiVerdadero : valorSiFalso
+          // ? = si es verdadero
+          // : = si es falso
+          multiplicador = (multiplicador < 7) ? multiplicador + 1 : 2;
+          //if (multiplicador < 7) {
+          //  multiplicador++;
+          //} else {
+          //  multiplicador = 2;    
+          //}
+      }
+
+      var resto = suma % 11;
+      var dvCalculado = 11 - resto;
+      if (dvCalculado === 11) dvCalculado = "0";
+      else if (dvCalculado === 10) dvCalculado = "K";
+      else dvCalculado = dvCalculado.toString();
+
+      var valido = (dvCalculado === dvIngresado);
+      if(valido == true){
+          let caja_error = document.getElementById("mensaje_run");
+          caja_error.innerHTML = "El rut ingresado es valido";
+          caja_error.className = "valido";
+      }
+      else {
+          let caja_error = document.getElementById("mensaje_run");
+          caja_error.innerHTML = "El rut ingresado no es valido";
+          caja_error.className = "invalido";
+      }
+  }
+  function validarnombre() {
+      const form = document.getElementById("form");
+      const datosForm = new FormData(form);
+      nombre_ingresado = datosForm.get("nombre")
+      var valido = isNaN(nombre_ingresado);
+      valido = valido && (nombre_ingresado.length <= 50);
+      if(valido == true){
+        let caja_error = document.getElementById("mensaje_nombre");
+        caja_error.innerHTML = "El nombre ingresado es valido";
+        caja_error.className = "valido";
+      }
+      else {
+          let caja_error = document.getElementById("mensaje_nombre");
+          caja_error.innerHTML = "El nombre ingresado no es valido";
+          caja_error.className = "invalido";
+      }
+    }
+    function validarapellido() {
+      const form = document.getElementById("form");
+      const datosForm = new FormData(form);
+      nombre_ingresado = datosForm.get("apellidos")
+      var valido = isNaN(nombre_ingresado);
+      valido = valido && (nombre_ingresado.length <= 100);
+      if(valido == true){
+        let caja_error = document.getElementById("mensaje_apellidos");
+        caja_error.innerHTML = "El nombre ingresado es valido";
+        caja_error.className = "valido";
+      }
+      else {
+          let caja_error = document.getElementById("mensaje_apellidos");
+          caja_error.innerHTML = "El nombre ingresado no es valido";
+          caja_error.className = "invalido";
+      }
+    }
+    function validarcorreo() {
+    const form = document.getElementById("form");
+    const datosForm = new FormData(form);
+    const correo = datosForm.get("correo").trim().toLowerCase();
+
+    const terminaBien =
+      correo.endsWith("@duoc.cl") ||
+      correo.endsWith("@profesor.duoc.cl") ||
+      correo.endsWith("@gmail.com");
+
+    const valido = terminaBien && correo.length <= 100 && correo.indexOf("@") > 0;
+
+    if (valido == true) {
+      let caja_error = document.getElementById("mensaje_correo");
+      caja_error.innerHTML = "El correo ingresado es valido";
+      caja_error.className = "valido";
+    } else {
+      let caja_error = document.getElementById("mensaje_correo");
+      caja_error.innerHTML = "Solo se permiten @duoc.cl, @profesor.duoc.cl o @gmail.com";
+      caja_error.className = "invalido";
+    }
+  }
+  function validartipoU() {
+      const form = document.getElementById("form");
+      const datos = new FormData(form);
+      const categoria = datos.get("tipoU");
+      const valido = categoria !== "";
+
+      if (valido) {
+        let caja_error = document.getElementById("mensaje_tipo");
+        caja_error.innerHTML = "Tipo de usuario seleccionado correctamente";
+        caja_error.className = "valido";
+      } else {
+        let caja_error = document.getElementById("mensaje_tipo");
+        caja_error.innerHTML = "Elige un tipo de usuario";
+        caja_error.className = "invalido";
+      }
+    }
+    function validarR() {
+      const form = document.getElementById("form");
+      const datos = new FormData(form);
+      const categoria = datos.get("tipoR");
+      const valido = categoria !== "";
+
+      if (valido) {
+        let caja_error = document.getElementById("mensaje_tipo_R");
+        caja_error.innerHTML = "Region seleccionada correctamente";
+        caja_error.className = "valido";
+      } else {
+        let caja_error = document.getElementById("mensaje_tipo_R");
+        caja_error.innerHTML = "Elige una region";
+        caja_error.className = "invalido";
+      }
+    }
+    function validarC() {
+      const form = document.getElementById("form");
+      const datos = new FormData(form);
+      const categoria = datos.get("tipoC");
+      const valido = categoria !== "";
+
+      if (valido) {
+        let caja_error = document.getElementById("mensaje_tipo_C");
+        caja_error.innerHTML = "Comuna seleccionada correctamente";
+        caja_error.className = "valido";
+      } else {
+        let caja_error = document.getElementById("mensaje_tipo_C");
+        caja_error.innerHTML = "Elige una comuna";
+        caja_error.className = "invalido";
+      }
+    }
+    function validardireccion() {
+      const form = document.getElementById("form");
+      const datosForm = new FormData(form);
+      direccion = datosForm.get("direccion")
+      var valido = isNaN(direccion);
+      valido = valido && (direccion.length <= 300);
+      if(valido == true){
+        let caja_error = document.getElementById("mensaje_direccion");
+        caja_error.innerHTML = "La direccion ingresada es valida";
+        caja_error.className = "valido";
+      }
+      else {
+          let caja_error = document.getElementById("mensaje_direccion");
+          caja_error.innerHTML = "La direccion ingresada no es valida";
+          caja_error.className = "invalido";
+      }
+    }
+</script>
 </head>
 <body>
 
@@ -57,7 +225,7 @@
             <nav class="migas">
               <span class="migas-suave">Atlas Commerce</span>
               <span class="migas-sep">></span>
-              <span class="migas-aqui">Nuevo producto</span>
+              <span class="migas-aqui">Nuevo Usuario</span>
             </nav>
             <div class="acciones">
               <button class="icono-btn" type="button">🔔</button>
@@ -69,12 +237,12 @@
 
       <main class="content">
         <section class="resumen">
-            <form class="form" action="#" method="post">
+            <form class="form" id="form" method="post">
                 <legend>Nuevo Usuario</legend>
           
                 <div class="campo">
                   <label for="run">Run</label>
-                  <input type="text" class="uni-css" name="run" placeholder="12345678-9">
+                  <input type="text" class="uni-css" name="run" placeholder="123456789 sin puntos ni guion">
                   <span class="error" id="mensaje_run"></span>
                 </div>
           
@@ -101,19 +269,19 @@
                 <span class="error" id="mensaje_fecha"></span>
                 </div>
                 <div class="campo">
-                <label for="tipo">Tipo de usuario</label>
-                <select class="uni-css" name="categoria">
-                    <option value="categoria">Elegir tipo de usuario</option>
-                    <option value="cervezas">Administrador</option>
-                    <option value="ron">Cliente</option>
-                    <option value="vodka">Vendedor</option>
+                <label for="tipoU">Tipo de usuario</label>
+                <select class="uni-css" name="tipoU">
+                    <option value="">Elegir tipo de usuario</option>
+                    <option value="administrador">Administrador</option>
+                    <option value="cliente">Cliente</option>
+                    <option value="vendedor">Vendedor</option>
                   </select>
                 <span class="error" id="mensaje_tipo"></span>
                 </div>
                 <div class="campo">
-                    <label for="tipo">Region</label>
-                    <select class="uni-css" name="opciones-regiones" required>
-                        <option value="" disabled selected>Seleccione una región</option>
+                    <label for="tipoR">Region</label>
+                    <select class="uni-css" name="tipoR" required>
+                        <option value="">Seleccione una región</option>
                         <option value="1">Región de Tarapacá</option>
                         <option value="2">Región de Antofagasta</option>
                         <option value="3">Región de Atacama</option>
@@ -128,15 +296,17 @@
                         <option value="12">Región de Magallanes y Antártica Chilena</option>
                         <option value="13">Región Metropolitana de santiago</option>
                         <option value="14">Región de los Ríos</option>
-                        <option value="15">Región de Arica y Parinacota/option>
+                        <option value="15">Región de Arica y Parinacota</option>
                     </select>
-                    <label for="tipo">Comuna</label>
-                    <select class="uni-css" name="opciones-comunas" required>
-                        <option value="" disabled selected>Elige una opción</option>
+                    <span class="error" id="mensaje_tipo_R"></span>
+                    <label for="tipoC">Comuna</label>
+                    <select class="uni-css" name="tipoC" required>
+                        <option value="">Elige una opción</option>
                         <option value="1">Opción 1</option>
                         <option value="2">Opción 2</option>
                         <option value="3">Opción 3</option>
                     </select>
+                    <span class="error" id="mensaje_tipo_C"></span>
                 </div>
                 <div class="campo">
                     <label for="direccion">Dirección</label>
@@ -145,12 +315,16 @@
                 </div>
                 <div class="form-acciones">
                   <button type="reset" class="btnL">Limpiar</button>
-                  <button type="button" class="btnP" onclick="procesar()">Procesar</button>
+                  <button type="button" class="btnP" onclick="validarRut(); validarnombre(); validarapellido();
+                          validarcorreo(); validartipoU(); validarR(); validarC(); validardireccion()">Procesar</button>
                 </div>
             </form>
           </section>
       </main>
     </div>
+  </div>
+  <div class="shell">
+    <footer class="pie">Desarrollado por GG AT MC<a href="#"><img class="img" src="img/J&C.png" alt="J&amp;C"></a></footer>
   </div>
 </body>
 </html>

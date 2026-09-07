@@ -3,8 +3,8 @@
 
  body {
    font-family: system-ui, sans-serif;
-   background: var(--fondo);
-   color: var(--texto);
+   background: #0c0a09;
+   color: #f5f2ed;
    min-height: 100vh;
  }
 
@@ -393,12 +393,6 @@
   resize: vertical;
 }
 
-.form-precio {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
 .form-acciones {
   display: flex;
   gap: 10px;
@@ -419,7 +413,7 @@
 .btnP{
   border-radius: 10px;
   background: #E8D496;
-  color: #14110e;
+  color: #14110e; 
   border-color: transparent;
   font-weight: 600;
 }
@@ -510,22 +504,27 @@
   font-weight: 600;
 }
 
-/* Pagina de configuracion */
-
-:root {
-  --fondo: #0c0a09;
-  --caja: #1a1612;
-  --texto: #f5f2ed;
-  --apagado: #c4b8a8;
-  --linea: #2c261f;
-  --acento: #E8D496;
+/* Footer de las paginas  */
+.pie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px;
+  border-top: 1px solid #2c261f;
+  color: #8a7d6e;
+  font-size: 0.82rem;
 }
 
-body.claro {
-  --fondo: #f4efe6;
-  --caja: #fffaf3;
-  --texto: #1c1917;
-  --apagado: #6b6258;
-  --linea: #e4d5b5;
-  --acento: #c4a574;
+.img {
+  height: 28px;
+  width: auto;
+}
+
+/* Validaciones de formulario */
+.valido {
+  color: green;
+}
+.invalido {
+  color: red;
 }
