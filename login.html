@@ -81,19 +81,16 @@
       return;
     }
 
-    // 4. Validar contraseña obligatoria
     if (!clave) {
       alert("La contraseña es obligatoria.");
       return;
     }
 
-    // 5. Validar largo de contraseña (entre 4 y 10 caracteres)
     if (clave.length < 4 || clave.length > 10) {
       alert("La contraseña debe tener entre 4 y 10 caracteres.");
       return;
     }
 
-    // 6. Buscar cuenta en el arreglo
     const cuentaEncontrada = cuentas.find(function (cuenta) {
       return (
         cuenta.correo === correo &&
@@ -106,7 +103,6 @@
       return;
     }
 
-    // 7. Guardar y redirigir
     localStorage.setItem("rolUsuario", cuentaEncontrada.rol);
     localStorage.setItem("usuarioActivo", cuentaEncontrada.correo);
 

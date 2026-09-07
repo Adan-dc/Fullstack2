@@ -90,8 +90,6 @@
         const regionElegida = e.target.value;
 
         selectComuna.innerHTML = '<option value="" disabled selected>Elige una opción</option>';
-
-        // Si la región existe en nuestro diccionario, le inyectamos sus comunas
         if (datosRegiones[regionElegida]) {
             datosRegiones[regionElegida].forEach(comuna => {
                 selectComuna.innerHTML += `<option value="${comuna}">${comuna}</option>`;

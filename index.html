@@ -752,10 +752,8 @@
                 <div class="carrusel-productos">
             `;
 
-            // 1. FILTRAMOS LOS PRODUCTOS DE ESTA CATEGORÍA EXACTA
             const productosDeCategoria = producto.filter(item => item.categoria === categoria);
 
-            // 2. RECORRIMOS LOS PRODUCTOS FILTRADOS
             productosDeCategoria.forEach(prod => {
                 const indexProducto = producto.indexOf(prod);
                 seccionHTML += `
