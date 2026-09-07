@@ -530,11 +530,21 @@
 }
 
 /* Vista limitada para el vendedor */
-.vista-vendedor .sidebar {
+body.vista-vendedor aside {
   display: none;
 }
 
-.vista-vendedor .shell {
-  margin-left: 0;
+body.vista-vendedor .app {
+  display: block;
   width: 100%;
+}
+
+body.vista-vendedor .centrar-tabla {
+  width: 100%;
+  overflow-x: auto;
+}
+
+body.vista-vendedor .tabla th,
+body.vista-vendedor .tabla td {
+  white-space: nowrap;
 }
