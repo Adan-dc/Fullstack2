@@ -841,7 +841,7 @@
                     if (nuevaCantidadTotal <= stockDisponible) {
                         carrito[indexEnCarrito].cantidad = nuevaCantidadTotal;
                         localStorage.setItem('carritoJC', JSON.stringify(carrito));
-                        alert("¡Agregaste más botellas al carrito, loco!");
+                        alert("¡Agregaste más botellas al carrito!");
                     } else {
                         alert("¡No puedes llevar tanto! Sumando lo que ya tienes en el carrito, superas el stock (" + stockDisponible + ").");
                     }
@@ -857,9 +857,9 @@
                         });
                         
                         localStorage.setItem('carritoJC', JSON.stringify(carrito));
-                        alert("¡Se fue al carrito, loco!");
+                        alert("¡Se fue al carrito!");
                     } else {
-                        alert("¡No nos queda tanto stock, po!");
+                        alert("¡No nos queda tanto stock!");
                     }
                 }
             });
@@ -881,14 +881,12 @@
         
         htmlCarrusel += `
             <article class="tarjeta">
-                <!-- Envolvemos la imagen en el link -->
                 <a href="detalleProducto.html?id=${indexOriginal}">
                     <img src="${prod.imagen}" alt="${prod.nombre}">
                 </a>
                 <div class="info-tarjeta">
                     <p class="marca-tarjeta">BOTILLERIA J&C</p>
                     
-                    <!-- Envolvemos el título también en el link para que sea clickeable -->
                     <a href="detalleProducto.html?id=${indexOriginal}" style="text-decoration: none; color: inherit;">
                         <h3 class="nombre-producto">${prod.nombre}</h3>
                     </a>
@@ -942,6 +940,6 @@
         }
     });
     </script>
-    
+    <footer class="pie">Desarrollado por GG AT MC<a href="#"><img class="img" src="imagenes/content.png" alt="J&amp;C"></a></footer>
 </body>
 </html>
