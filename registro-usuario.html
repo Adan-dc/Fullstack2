@@ -15,12 +15,12 @@
 
         <nav class="nav-link">
             <a href="index.html" class="links-nav">Home</a>
-            <a href="" class="links-nav">Productos</a>
             <a href="" class="links-nav">Nosotros</a>
             <a href="" class="links-nav">Blogs</a>
             <a href="" class="links-nav">Contactos</a>
             <a href="login.html"><img class="img-usuario" src="imagenesbotilleria/usuario.webp"></a>
             <a href="carrito.html"><img class="img-carrito" src="imagenesbotilleria/carrito.png"></a>
+            <a href="#" class="links-nav" id="btn-logout" style="display: none;" onclick="cerrarSesion()">Salir</a>
         </nav>
     </header>
     <div>
@@ -157,6 +157,27 @@
         alert("Usuario registrado con éxito.");
     }
     });
+    function cerrarSesion() {
+        localStorage.removeItem("usuarioActivo");
+        localStorage.removeItem("rolUsuario");
+        
+        alert("¡Sesión cerrada con éxito!");
+        window.location.href = "index.html";
+    }
+    function verificarEstadoSesion() {
+        const usuarioActivo = localStorage.getItem("usuarioActivo");
+        const btnLogin = document.getElementById("btn-login");
+        const btnLogout = document.getElementById("btn-logout");
+
+        if (usuarioActivo) {
+            if (btnLogin) btnLogin.style.display = "none";
+            if (btnLogout) btnLogout.style.display = "inline";
+        } else {
+            if (btnLogin) btnLogin.style.display = "inline";
+            if (btnLogout) btnLogout.style.display = "none";
+        }
+    }
+    document.addEventListener("DOMContentLoaded", verificarEstadoSesion);
   </script>
       </div>
     <footer class="pie">Desarrollado por GG AT MC<a href="#"><img class="img" src="imagenes/content.png" alt="J&amp;C"></a></footer>
