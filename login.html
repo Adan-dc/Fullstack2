@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>BotilleriaJ&C-sign-up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header class="header-boti">
+        <div class="contorno-div">
+            <img class="img-boti" src="imagenes/content.png">
+            <h1 class="titulo_botilleria">Botilleria J&C</h1>
+        </div>
+
+        <nav class="nav-link">
+            <a href="index.html" class="links-nav">Home</a>
+            <a href="" class="links-nav">Productos</a>
+            <a href="" class="links-nav">Nosotros</a>
+            <a href="" class="links-nav">Blogs</a>
+            <a href="" class="links-nav">Contactos</a>
+            <a href="login.html"><img class="img-usuario" src="imagenesbotilleria/usuario.webp"></a>
+            <a href="carrito.html"><img class="img-carrito" src="imagenesbotilleria/carrito.png"></a>
+        </nav>
+    </header>
+    <div class="contenedor-logo">
+        <img class="img-boti2" src="imagenes/content.png">
+        <h1 class="titulo_botilleria2">Botilleria J&C</h1>
+    </div>
+    <div>
+        <fieldset class="contorno-registro acceso-cliente">
+            <h3 class="subtitulo">Inicio sesion</h3>
+            <label for="correo" class="correo">CORREO</label>
+            <input type="email" name="campo_correo" id="correo" class="input-estandar">
+            <label for="contraseña" class="contraseña">CONTRASEÑA</label>
+            <input type="password" name="campo_contraseña" id="clave" class="input-estandar">
+            <button class="btn-iniciar-sesion" type="button" onclick="iniciarSesion()">Iniciar Sesion</button>
+        </fieldset>
+        <p class="link-registro"><a href="registro-usuario.html">REGISTRARSE</a></p>
+    </div>
+  <script>
+  const cuentas = [
+    {
+      correo: "cristobal@gmail.com",
+      clave: "admin123",
+      rol: "administrador"
+    },
+    {
+      correo: "example@gmail.com",
+      clave: "venta123",
+      rol: "vendedor"
+    },
+    {
+      correo: "olicares@gmail.com",
+      clave: "1234",
+      rol: "cliente"
+    }
+  ];
+
+  function iniciarSesion() {
+    const correo = document.getElementById("correo").value.trim().toLowerCase();
+    const clave = document.getElementById("clave").value.trim();
+
+    // 1. Validar correo obligatorio
+    if (!correo) {
+      alert("El correo es obligatorio.");
+      return;
+    }
+
+    // 2. Validar máximo 100 caracteres
+    if (correo.length > 100) {
+      alert("El correo no puede superar los 100 caracteres.");
+      return;
+    }
+
+    // 3. Validar dominios permitidos
+    const dominiosPermitidos = ['@duoc.cl', '@profesor.duoc.cl', '@gmail.com'];
+    const correoValido = dominiosPermitidos.some(dominio => correo.endsWith(dominio));
+    if (!correoValido) {
+      alert("El correo solo puede terminar en @duoc.cl, @profesor.duoc.cl o @gmail.com");
+      return;
+    }
+
+    // 4. Validar contraseña obligatoria
+    if (!clave) {
+      alert("La contraseña es obligatoria.");
+      return;
+    }
+
+    // 5. Validar largo de contraseña (entre 4 y 10 caracteres)
+    if (clave.length < 4 || clave.length > 10) {
+      alert("La contraseña debe tener entre 4 y 10 caracteres.");
+      return;
+    }
+
+    // 6. Buscar cuenta en el arreglo
+    const cuentaEncontrada = cuentas.find(function (cuenta) {
+      return (
+        cuenta.correo === correo &&
+        cuenta.clave === clave
+      );
+    });
+
+    if (!cuentaEncontrada) {
+      alert("El correo o la contraseña son incorrectos");
+      return;
+    }
+
+    // 7. Guardar y redirigir
+    localStorage.setItem("rolUsuario", cuentaEncontrada.rol);
+    localStorage.setItem("usuarioActivo", cuentaEncontrada.correo);
+
+    if (cuentaEncontrada.rol === "administrador") {
+      window.location.href = "dashboard.html";
+    } else if (cuentaEncontrada.rol === "vendedor") {
+      window.location.href = "mostrar_producto.html";
+    } else {
+      window.location.href = "index.html";
+    }
+  }
+</script>
+    <footer class="pie">Desarrollado por GG AT MC<a href="#"><img class="img" src="img/J&C.png" alt="J&amp;C"></a></footer>
+</body>
+</html>

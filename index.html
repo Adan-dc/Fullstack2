@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>BotilleriaJ&C-sign-up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilo.css">
+  <script>
+    let producto = [
+        {
+            nombre: "six pack cerveza escudo silver lata 473 cc",
+            categoria: "cerveza",
+            precio: 4500,
+            imagen : "imagenesbotilleria/cervezas/six-pack-cerveza-escudo-silver-lata-473-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "six pack cerveza escudo lata 473 cc",
+            categoria: "cerveza",
+            precio: 4500,
+            imagen : "imagenesbotilleria/cervezas/six-pack-cerveza-escudo-lata-473-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "six pack cerveza cristal lata 473 cc",
+            categoria: "cerveza",
+            precio: 4500,
+            imagen : "imagenesbotilleria/cervezas/six-pack-cerveza-cristal-lata-473-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "six pack cerveza becker lata 473 cc",
+            categoria: "cerveza",
+            precio: 4500,
+            imagen : "imagenesbotilleria/cervezas/six-pack-cerveza-becker-lata-473-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "six pack cerveza royal lata 473cc",
+            categoria: "cerveza",
+            precio: 5000,
+            imagen : "imagenesbotilleria/cervezas/six-pack-cerveza-royal-lata-473cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "six pack cerveza heineken lata 473 cc",
+            categoria: "cerveza",
+            precio: 7000,
+            imagen : "imagenesbotilleria/cervezas/six-pack-cerveza-heineken-lata-473-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "six pack cerveza miller 355 cc",
+            categoria: "cerveza",
+            precio: 7000,
+            imagen : "imagenesbotilleria/cervezas/six-pack-cerveza-miller-355-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "six pack cerveza corona 355 cc",
+            categoria: "cerveza",
+            precio: 7000,
+            imagen : "imagenesbotilleria/cervezas/six-pack-cerveza-corona-355-cc.jpg",
+            stock : 1
+        },
+        {
+            nombre: "cerveza corona 710 cc",
+            categoria: "cerveza",
+            precio: 1900,
+            imagen : "imagenesbotilleria/cervezas/cerveza-corona-710-cc.jpg",
+            stock : 1
+        },
+        {
+            nombre: "cerveza miller 650 cc",
+            categoria: "cerveza",
+            precio: 2700,
+            imagen : "imagenesbotilleria/cervezas/cerveza-miller-650-cc.jpg",
+            stock : 1
+        },
+        {
+            nombre: "cerveza kunstmann torobayo 500 cc",
+            categoria: "cerveza",
+            precio: 2000,
+            imagen : "imagenesbotilleria/cervezas/cerveza-kunstmann-torobayo-500-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "lemon stones lata 350 cc",
+            categoria: "cerveza",
+            precio: 1100,
+            imagen : "imagenesbotilleria/cervezas/lemon-stones-lata-350-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "lemon stones maracuya lata 350 cc",
+            categoria: "cerveza",
+            precio: 1100,
+            imagen : "imagenesbotilleria/cervezas/lemon-stones-maracuya-lata-350-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "cerveza stella artois 660 cc",
+            categoria: "cerveza",
+            precio: 1200,
+            imagen : "imagenesbotilleria/cervezas/cerveza-stella-artois-660-cc.jpg",
+            stock : 1
+        },
+        {
+            nombre: "cerveza volcanes del sur 1 lt chocolate / naranja",
+            categoria: "cerveza",
+            precio: 2000,
+            imagen : "imagenesbotilleria/cervezas/cerveza-volcanes-del-sur-1-lt-chocolate-y-naranja.png",
+            stock : 1
+        },
+        {
+            nombre: "cerveza volcanes del sur 1 lt lucuma",
+            categoria: "cerveza",
+            precio: 1500,
+            imagen : "imagenesbotilleria/cervezas/cerveza-volcanes-del-sur-1-lt-lucuma.jpg",
+            stock : 1
+        },
+        {
+            nombre: "cerveza volcanes del sur 1 lt doppelbock",
+            categoria: "cerveza",
+            precio: 1900,
+            imagen : "imagenesbotilleria/cervezas/cerveza-volcanes-del-sur-1-lt-doppelbock.png",
+            stock : 1
+        },
+        {
+            nombre: "cerveza budweiser laton 740 cc",
+            categoria: "cerveza",
+            precio: 1200,
+            imagen : "imagenesbotilleria/cervezas/cerveza-budweiser-laton-740-cc.png",
+            stock : 1
+        },
+        //Ron
+        {
+            nombre: "ron barcelo añejo 750 cc",
+            categoria: "ron",
+            precio: 11000,
+            imagen : "imagenesbotilleria/ron/ron-barcelo-añejo.jpeg",
+            stock : 1
+        },
+        {
+            nombre: "ron cabo viejo 750 ml",
+            categoria: "ron",
+            precio: 4500,
+            imagen : "imagenesbotilleria/ron/ron-cabo-viejo.jpg",
+            stock : 1
+        },
+        {
+            nombre: "ron havana club especial 750 cc",
+            categoria: "ron",
+            precio: 7000,
+            imagen : "imagenesbotilleria/ron/RON-HAVANA-CLUB-ANEJO-ESPECIAL-750-CC-300x300-1.jpg",
+            stock : 1
+        },
+        {
+            nombre: "petacon ron barcelo 375 cc",
+            categoria: "ron",
+            precio: 3300,
+            imagen : "imagenesbotilleria/ron/petacon-ron.webp",
+            stock : 1
+        },
+        {
+            nombre: "ron bacardi cata oro 750 cc",
+            categoria: "ron",
+            precio: 10000,
+            imagen : "imagenesbotilleria/ron/ron-bacardi-cata-oro.jpg",
+            stock : 1
+        },
+        {
+            nombre: "ron bacardi carta blanca 1 lt",
+            categoria: "ron",
+            precio:10000,
+            imagen : "imagenesbotilleria/ron/ron-bacardi-carta-blanca.webp",
+            stock : 1
+        },
+        //vodka
+        {
+            nombre: "spirit blue berry ",
+            categoria: "vodka",
+            precio: 2000,
+            imagen : "imagenesbotilleria/vodka/RTD_SPIRIT_BLUEBERRY.webp",
+            stock : 1
+        },
+        {
+            nombre: "spirit piña",
+            categoria: "vodka",
+            precio: 2000,
+            imagen : "imagenesbotilleria/vodka/spriti-piña.webp",
+            stock : 1
+        },
+        {
+            nombre: "spirit limon",
+            categoria: "vodka",
+            precio: 2000,
+            imagen : "imagenesbotilleria/vodka/spirit-limon.png",
+            stock : 1
+        },
+        {
+            nombre: "vodka eristoff black 700 cc",
+            categoria: "vodka",
+            precio: 7000,
+            imagen : "imagenesbotilleria/vodka/eristoff-black.webp",
+            stock : 1
+        },
+        {
+            nombre: "vodka eristoff 700 cc",
+            categoria: "vodka",
+            precio: 5000,
+            imagen : "imagenesbotilleria/vodka/eristoff.webp",
+            stock : 1
+        },
+        //Bebidas
+        {
+            nombre: "bebida cocacola 3 litros desechable",
+            categoria: "bebidas",
+            precio: 2500,
+            imagen : "imagenesbotilleria/bebidas/cocacola3lt.webp",
+            stock : 1
+        },
+        {
+            nombre: "bebida fanta 3 litros desechable",
+            categoria: "bebidas",
+            precio: 2500,
+            imagen : "imagenesbotilleria/bebidas/fanta-3lt.jpg",
+            stock : 1
+        },
+        {
+            nombre: "bebida sprite 3 litros desechable",
+            categoria: "bebidas",
+            precio: 2500,
+            imagen : "imagenesbotilleria/bebidas/sprite.png",
+            stock : 1
+        },
+        {
+            nombre: "monster energy 473 cc",
+            categoria: "bebidas",
+            precio: 2500,
+            imagen : "imagenesbotilleria/bebidas/monster.png",
+            stock : 1
+        },
+        {
+            nombre: "jugo nectar watts 1.5 lt piña",
+            categoria: "bebidas",
+            precio: 1900,
+            imagen : "imagenesbotilleria/bebidas/watts-piña.png",
+            stock : 1
+        },
+        {
+            nombre: "jugo nectar watts 1.5 lt durazno",
+            categoria: "bebidas",
+            precio: 1900,
+            imagen : "imagenesbotilleria/bebidas/watts-durazno.webp",
+            stock : 1
+        },
+                {
+            nombre: "jugo nectar watts 1.5 lt naranja",
+            categoria: "bebidas",
+            precio: 1900,
+            imagen : "imagenesbotilleria/bebidas/watss-naranja.webp",
+            stock : 1
+        },
+                {
+            nombre: "jugo nectar watts 1.5 lt tutti frutilla",
+            categoria: "bebidas",
+            precio: 1900,
+            imagen : "imagenesbotilleria/bebidas/watts-tuttifrutilla.jpg",
+            stock : 1
+        },
+        {
+            nombre: "bebida 3 litros desechable limon soda",
+            categoria: "bebidas",
+            precio: 2500,
+            imagen : "imagenesbotilleria/bebidas/limon-soda-3lt.png",
+            stock : 1
+        },
+        {
+            nombre: "bebida 3 litros desechable orange crush",
+            categoria: "bebidas",
+            precio: 2500,
+            imagen : "imagenesbotilleria/bebidas/orange-crush.png",
+            stock : 1
+        },
+        {
+            nombre: "bebida 3 litros desechable kem",
+            categoria: "bebidas",
+            precio: 2500,
+            imagen : "imagenesbotilleria/bebidas/kem-3lt.webp",
+            stock : 1
+        },
+        {
+            nombre: "bebida 3 litros desechable pap",
+            categoria: "bebidas",
+            precio: 2500,
+            imagen : "imagenesbotilleria/bebidas/pap-3lt.png",
+            stock : 1
+        },
+        {
+            nombre: "bebida 3 litros desechable bilz",
+            categoria: "bebidas",
+            precio: 2500,
+            imagen : "./imagenesbotilleria/bebidas/bilz-3lt.jpg",
+            stock : 1
+        },
+        {
+            nombre: "bebida 3 litros desechable canada dry",
+            categoria: "bebidas",
+            precio: 2500,
+            imagen : "imagenesbotilleria/bebidas/canada-dry-3lt.png",
+            stock : 1
+        },
+        {
+            nombre: "energetica redbull 250 ml",
+            categoria: "bebidas",
+            precio: 1700,
+            imagen : "imagenesbotilleria/bebidas/redbull.webp",
+            stock : 1
+        },
+        //vinos
+        {
+            nombre: "vino santa helena 2 lt blanco",
+            categoria: "vinos",
+            precio: 3800,
+            imagen : "/imagenesbotilleria/vinos/vino-santa-helena-blanco.jpg",
+            stock : 1
+        },
+        {
+            nombre: "vino santa helena 2 lt tinto",
+            categoria: "vinos",
+            precio: 3800,
+            imagen : "/imagenesbotilleria/vinos/santa-helena-tinto.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino 120 2 litros tinto",
+            categoria: "vinos",
+            precio: 5500,
+            imagen : "/imagenesbotilleria/vinos/vino-120-tinto.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino gato 2 litros canernet sauvignon",
+            categoria: "vinos",
+            precio: 5500,
+            imagen : "/imagenesbotilleria/vinos/Vino-Gato-Cabernet-Sauvignon-Caja-2-L.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino bodega 2 litros tinto",
+            categoria: "vinos",
+            precio: 5000,
+            imagen : "/imagenesbotilleria/vinos/bodega-uno-vino-tinto.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino bodega 2 litros blanco",
+            categoria: "vinos",
+            precio: 5000,
+            imagen : "/imagenesbotilleria/vinos/bodega-uno-vino-blanco-2lt.png",
+            stock : 1
+        },
+        {
+            nombre: "botellon gran 120 cabernet sauvignon 1.5 lt",
+            categoria: "vinos",
+            precio: 5000,
+            imagen : "/imagenesbotilleria/vinos/120-cabernet-sauvignon-1.5lt.jpg",
+            stock : 1
+        },
+        {
+            nombre: "undurraga pinot merlot 750 ml",
+            categoria: "vinos",
+            precio: 3700,
+            imagen : "/imagenesbotilleria/vinos/undurraga-merlot.webp",
+            stock : 1
+        },
+        {
+            nombre: "botellon exportacion selecto cabernet sauvignon 1.5 lt",
+            categoria: "vinos",
+            precio: 3700,
+            imagen : "/imagenesbotilleria/vinos/exportacion-selecto-cabernet-sauvignon-1.5lt.webp",
+            stock : 1
+        },
+        {
+            nombre: "botellon exportacion selecto merlot 1.5 lt",
+            categoria: "vinos",
+            precio: 3700,
+            imagen : "/imagenesbotilleria/vinos/exportacion-selecto-cabernet-sauvignon-1.5lt.webp",
+            stock : 1
+        },
+        {
+            nombre: "botellon clos de pirque cabernet sauvignon 1.5 lt",
+            categoria: "vinos",
+            precio: 3700,
+            imagen : "/imagenesbotilleria/vinos/clos-de-pirque-vino-tinto-cabernet-sauvignon.webp",
+            stock : 1
+        },
+        {
+            nombre: "botellon clos de pirque merlot 1.5 lt",
+            categoria: "vinos",
+            precio: 3700,
+            imagen : "/imagenesbotilleria/vinos/clos-de-pirque-vino-tinto-merlot.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino bodega uno tinto 1 lt",
+            categoria: "vinos",
+            precio: 3000,
+            imagen : "/imagenesbotilleria/vinos/vino-tinto-bodega-uno-1lt.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino bodega uno blanco 1 lt",
+            categoria: "vinos",
+            precio: 3000,
+            imagen : "/imagenesbotilleria/vinos/vino-bodega-uno-blanco-1lt.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino santa helena tinto 1 lt",
+            categoria: "vinos",
+            precio: 3000,
+            imagen : "/imagenesbotilleria/vinos/santa-helena-tinto.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino 120 tinto 1 lt",
+            categoria: "vinos",
+            precio: 3000,
+            imagen : "/imagenesbotilleria/vinos/vino-120-tinto.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino 120 blanco 1 lt",
+            categoria: "vinos",
+            precio: 3000,
+            imagen : "/imagenesbotilleria/vinos/vino-120 blanco-1-lt.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino clos de pirque tinto 1 lt",
+            categoria: "vinos",
+            precio: 3300,
+            imagen : "/imagenesbotilleria/vinos/clos-de-pirque-vino-tinto-1lt.jpg",
+            stock : 1
+        },
+        {
+            nombre: "vino gato tinto 1 lt",
+            categoria: "vinos",
+            precio: 3500,
+            imagen : "/imagenesbotilleria/vinos/vino-gato-tinto-1-lt.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino gato merlot 1 lt",
+            categoria: "vinos",
+            precio: 3500,
+            imagen : "/imagenesbotilleria/vinos/vino-gato-merlot-1lt.jpg",
+            stock : 1
+        },
+        {
+            nombre: "vino gato blanco 1 lt",
+            categoria: "vinos",
+            precio: 3500,
+            imagen : "/imagenesbotilleria/vinos/Vino-Gato-Blanco-Caja-1-L.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino bodega uno tinto 500cc",
+            categoria: "vinos",
+            precio: 1000,
+            imagen : "/imagenesbotilleria/vinos/vino-bodega-uno-500cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino bodega uno blanco 500cc",
+            categoria: "vinos",
+            precio: 1000,
+            imagen : "/imagenesbotilleria/vinos/bodega-uno-vino-blanco-500cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino santa helena tinto 500cc",
+            categoria: "vinos",
+            precio: 1000,
+            imagen : "/imagenesbotilleria/vinos/santa-helena-tinto-500cc.jpg",
+            stock : 1
+        },
+        {
+            nombre: "vino santa helena blanco 500cc",
+            categoria: "vinos",
+            precio: 1000,
+            imagen : "/imagenesbotilleria/vinos/vino-santa-helena-blanco-500cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino 120 tinto 500cc",
+            categoria: "vinos",
+            precio: 1000,
+            imagen : "/imagenesbotilleria/vinos/120-tinto-500cc.jpg",
+            stock : 1
+        },
+        {
+            nombre: "vino 120 blanco 500cc",
+            categoria: "vinos",
+            precio: 1000,
+            imagen : "/imagenesbotilleria/vinos/blanco-120-500cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino gato 2 litros canernet sauvignon",
+            categoria: "vinos",
+            precio: 5500,
+            imagen : "/imagenesbotilleria/vinos/Vino-Gato-Cabernet-Sauvignon-Caja-2-L.webp",
+            stock : 1
+        },
+        {
+            nombre: "vino undurraga pinot cabernet sauvignon",
+            categoria: "vinos",
+            precio: 4000,
+            imagen : "/imagenesbotilleria/vinos/undurraga-pinot-sauvignon-750cc.webp",
+            stock : 1
+        },
+        //licores
+        {
+            nombre: "martini rosso",
+            categoria: "licores",
+            precio: 5500,
+            imagen : "/imagenesbotilleria/licores/martini-rosso.webp",
+            stock : 1
+        },
+        {
+            nombre: "martini blanco",
+            categoria: "licores",
+            precio: 5500,
+            imagen : "/imagenesbotilleria/licores/martini-blanco.webp",
+            stock : 1
+        },
+        {
+            nombre: "cognac 3 palos 1 litro",
+            categoria: "licores",
+            precio: 5500,
+            imagen : "/imagenesbotilleria/licores/cognac-tres-palos-1lt.webp",
+            stock : 1
+        },
+        {
+            nombre: "capel mix toffee cream 700 ml",
+            categoria: "licores",
+            precio: 5100,
+            imagen : "/imagenesbotilleria/licores/capel-mix-toffee-cream-700-ml.jpg",
+            stock : 1
+        },
+        {
+            nombre: "aguardiente doñihue 900cc",
+            categoria: "licores",
+            precio: 3600,
+            imagen : "/imagenesbotilleria/licores/aguardiente-doñihue-900cc.jpg",
+            stock : 1
+        },
+        {
+            nombre: "santo mojito cocktail 750 cc",
+            categoria: "licores",
+            precio: 4600,
+            imagen : "/imagenesbotilleria/licores/santo-mojito-cocktail-750-cc.avif",
+            stock : 1
+        },
+        {
+            nombre: "santa margarita fresa coktail 750 cc",
+            categoria: "licores",
+            precio: 4600,
+            imagen : "/imagenesbotilleria/licores/santa-margarita-fresa-coktail-750-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "campanario piña colada 700 cc",
+            categoria: "licores",
+            precio: 5000,
+            imagen : "/imagenesbotilleria/licores/campanario-piña-colada-700-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "campanario chirimoya colada 700 cc",
+            categoria: "licores",
+            precio: 5000,
+            imagen : "/imagenesbotilleria/licores/campanario-chirimoya-colada-700-cc.jpg",
+            stock : 1
+        },
+        {
+            nombre: "campanario lucuma colada 700 cccampanario lucuma colada 700 cc",
+            categoria: "licores",
+            precio: 5000,
+            imagen : "/imagenesbotilleria/licores/campanario-lucuma-colada-700-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "campanario mango colado 700 cc",
+            categoria: "licores",
+            precio: 5000,
+            imagen : "/imagenesbotilleria/licores/campanario-mango-colado-700-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "tequila blanco sombrero negro 750 ml",
+            categoria: "licores",
+            precio: 14000,
+            imagen : "/imagenesbotilleria/licores/tequila-blanco-sombrero-negro-750-ml.webp",
+            stock : 1
+        },
+        //piscos
+        {
+            nombre: "pisco mal paso 40° 750 cc",
+            categoria: "pisco",
+            precio: 7200,
+            imagen : "/imagenesbotilleria/piscos/pisco-mal-paso-40°-750-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "pisco mistral 35° 1 litro",
+            categoria: "pisco",
+            precio: 10000,
+            imagen : "/imagenesbotilleria/piscos/pisco-mistral-35°-1-litro.webp",
+            stock : 1
+        },
+        {
+            nombre: "pisco bauza 35° 750 cc",
+            categoria: "pisco",
+            precio: 7000,
+            imagen : "/imagenesbotilleria/piscos/pisco-bauza-35°-750-cc.jpg",
+            stock : 1
+        },
+        {
+            nombre: "pisco campanario mango 750 cc",
+            categoria: "pisco",
+            precio: 6000,
+            imagen : "/imagenesbotilleria/piscos/pisco-campanario-mango-750-cc.jpeg",
+            stock : 1
+        },
+        {
+            nombre: "pisco campanario sour 750 cc",
+            categoria: "pisco",
+            precio: 6000,
+            imagen : "/imagenesbotilleria/piscos/pisco-campanario-sour-750-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "pisco secreto peruano sour 1 litro",
+            categoria: "pisco",
+            precio: 4000,
+            imagen : "/imagenesbotilleria/piscos/pisco-secreto-peruano-sour-1-litro.jpg",
+            stock : 1
+        },
+        {
+            nombre: "pisco secreto peruano mango 1 litro",
+            categoria: "pisco",
+            precio: 4500,
+            imagen : "/imagenesbotilleria/piscos/pisco-secreto-peruano-mango-1-litro.webp",
+            stock : 1
+        },
+        {
+            nombre: "pisco capel especial 35° 1 litro",
+            categoria: "pisco",
+            precio: 8000,
+            imagen : "/imagenesbotilleria/piscos/pisco-capel-especial-35°-1-litro.jpeg",
+            stock : 1
+        },
+        {
+            nombre: "pisco capel sour 750 cc",
+            categoria: "pisco",
+            precio: 5000,
+            imagen : "/imagenesbotilleria/piscos/pisco-capel-sour-750-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "pisco capel mango 750 cc",
+            categoria: "pisco",
+            precio: 5000,
+            imagen : "/imagenesbotilleria/piscos/pisco-capel-mango-750-cc.webp",
+            stock : 1
+        },
+        //whisky
+        {
+            nombre: "whisky red label 750 cc ",
+            categoria: "whisky",
+            precio: 10500,
+            imagen : "/imagenesbotilleria/whisky/whisky-red-label-750-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "whisky ballantines finest 1 litro",
+            categoria: "whisky",
+            precio: 12000,
+            imagen : "/imagenesbotilleria/whisky/whisky-ballantines-finest-1-litro.jpeg",
+            stock : 1
+        },
+        {
+            nombre: "whisky vat 69 750 cc",
+            categoria: "whisky",
+            precio: 8000,
+            imagen : "/imagenesbotilleria/whisky/whisky-vat-69-750-cc.jpg",
+            stock : 1
+        },
+        {
+            nombre: "whisky jack daniels honey 750 cc",
+            categoria: "whisky",
+            precio: 30000,
+            imagen : "/imagenesbotilleria/whisky/whisky-jack-daniels-honey-750-cc.webp",
+            stock : 1
+        },
+        {
+            nombre: "baileys original",
+            categoria: "whisky",
+            precio: 17000,
+            imagen : "/imagenesbotilleria/whisky/baileys-original.webp",
+            stock : 1
+        },
+        
+    ]
+  </script>
+</head>
+<body>
+    <header class="header-boti">
+        <div class="contorno-div">
+            <img class="img-boti" src="imagenes/content.png">
+            <h1 class="titulo_botilleria">Botilleria J&C</h1>
+        </div>
+        <nav class="nav-link">
+            <a href="" class="links-nav">Home</a>
+            <a href="" class="links-nav">Productos</a>
+            <a href="" class="links-nav">Nosotros</a>
+            <a href="" class="links-nav">Blogs</a>
+            <a href="" class="links-nav">Contactos</a>
+            <a href="login.html"><img class="img-usuario" src="imagenesbotilleria/usuario.webp"></a>
+            <a href="carrito.html"><img class="img-carrito" src="imagenesbotilleria/carrito.png"></a>
+        </nav>
+    </header>
+        <main id="tienda-contenedor" class="contenedor-principal"></main>
+    <script>
+         const contenedorTienda = document.getElementById('tienda-contenedor');
+
+            const categoriasUnicas = [...new Set(producto.map(item => item.categoria))];
+
+            categoriasUnicas.forEach(categoria => {
+            
+            let seccionHTML = `
+                <section class="seccion-categoria">
+                <div class="cabecera-categoria">
+                    <h2>${categoria.toUpperCase()}</h2>
+                </div>
+                
+                <!-- Este es el contenedor que va a hacer el scroll horizontal -->
+                <div class="carrusel-productos">
+            `;
+
+            // 1. FILTRAMOS LOS PRODUCTOS DE ESTA CATEGORÍA EXACTA
+            const productosDeCategoria = producto.filter(item => item.categoria === categoria);
+
+            // 2. RECORRIMOS LOS PRODUCTOS FILTRADOS
+            productosDeCategoria.forEach(prod => {
+                const indexProducto = producto.indexOf(prod);
+                seccionHTML += `
+                <article class="tarjeta">
+                    <a href="detalleProducto.html?id=${indexProducto}">
+                    <img src="${prod.imagen}" alt="${prod.nombre}">
+                    </a>
+                    <div class="info-tarjeta">
+                    <p class="marca-tarjeta">BOTILLERIA J&C</p>
+                    <h3 class="nombre-producto">${prod.nombre}</h3>
+                    <p class="precio-producto">$${prod.precio.toLocaleString('es-CL')}</p>
+                    <button class="btn-añadir" data-id="${indexProducto}">Añadir 🛒</button>
+                    </div>
+                </article>
+                `;
+            });
+
+            seccionHTML += `
+                </div>
+                </section>
+            `;
+
+            contenedorTienda.innerHTML += seccionHTML;
+            
+            });
+
+            document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('btn-añadir')) {
+                
+                const idProducto = parseInt(e.target.getAttribute('data-id'));
+                
+                const cantidad = 1; 
+                const stockDisponible = producto[idProducto].stock;
+                
+                let carrito = JSON.parse(localStorage.getItem('carritoJC')) || [];
+
+                const indexEnCarrito = carrito.findIndex(item => item.id === idProducto);
+
+                if (indexEnCarrito !== -1) {
+                    if (carrito[indexEnCarrito].cantidad + cantidad <= stockDisponible) {
+                        carrito[indexEnCarrito].cantidad += cantidad;
+                        localStorage.setItem('carritoJC', JSON.stringify(carrito));
+                        alert("¡Sumaste otra botella de " + producto[idProducto].nombre + " al carrito!");
+                    } else {
+                        alert("¡Llegaste al tope! Ya tienes el máximo stock (" + stockDisponible + ") en tu carrito.");
+                    }
+                } else {
+                    if (stockDisponible >= cantidad) {
+                        carrito.push({
+                            id: idProducto,
+                            nombre: producto[idProducto].nombre,
+                            precio: producto[idProducto].precio,
+                            cantidad: cantidad,
+                            imagen: producto[idProducto].imagen,
+                            stock: stockDisponible 
+                        });
+                        
+                        localStorage.setItem('carritoJC', JSON.stringify(carrito));
+                        alert("¡" + producto[idProducto].nombre + " se fue al carrito!");
+                    } else {
+                        alert("¡Pucha, nos quedamos sin stock de esta botella!");
+                    }
+                }
+            }
+        });
+    </script>
+<footer class="pie">Desarrollado por GG AT MC<a href="#"><img class="img" src="img/J&C.png" alt="J&amp;C"></a></footer>
+</body>
+</html>
