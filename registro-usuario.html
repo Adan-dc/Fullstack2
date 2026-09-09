@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>BotilleriaJ&C-sign-up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilo2.css">
+</head>
+<body>
+    <header class="header-boti">
+        <div class="contorno-div">
+            <img class="img-boti" src="imagenes/content.png">
+            <h1 class="titulo_botilleria">Botilleria J&C</h1>
+        </div>
+
+        <nav class="nav-link">
+            <a href="index.html" class="links-nav">Home</a>
+            <a href="nosotros.html" class="links-nav">Nosotros</a>
+            <a href="blog.html" class="links-nav">Blogs</a>
+            <a href="contacto.html" class="links-nav">Contactos</a>
+            <a href="login.html"><img class="img-usuario" src="imagenesbotilleria/usuario.webp"></a>
+            <a href="carrito.html"><img class="img-carrito" src="imagenesbotilleria/carrito.png"></a>
+            <a href="#" class="links-nav" id="btn-logout" style="display: none;" onclick="cerrarSesion()">Salir</a>
+        </nav>
+    </header>
+    <div>
+        <fieldset class="contorno-registro acceso-cliente">
+            <h3 class="subtitulo">Registro de usuario</h3>
+            <label for="nombre" class="label-form-acceso">NOMBRE COMPLETO</label>
+            <input type="text" name="campo_nombre" class="input-estandar">
+            <label for="correo" class="label-form-acceso">CORREO</label>
+            <input type="email" name="campo_correo" class="input-estandar">
+            <label for="correo-confirmar" class="label-form-acceso">CONFIRMAR CORREO</label>
+            <input type="email" name="campo_correo-confirmar" class="input-estandar">
+            <label for="contraseña" class="label-form-acceso">CONTRASEÑA</label>
+            <input type="password" name="campo_contraseña" class="input-estandar">
+            <label for="contraseña-confirmar" class="label-form-acceso">CONFIRMAR CONTRASEÑA</label>
+            <input type="password" name="campo_contraseña-confirmar" class="input-estandar">
+            <label for="telefono" class="label-form-acceso">TELEFONO (opcional)</label>
+            <input type="text" name="campo_telefono" class="input-estandar">
+            <select class="select-form-acceso" name="opciones-regiones" required>
+                <option value="" disabled selected>Seleccione una región</option>
+                <option value="1">Región de Tarapacá</option>
+                <option value="2">Región de Antofagasta</option>
+                <option value="3">Región de Atacama</option>
+                <option value="4">Región de Coquimbo</option>
+                <option value="5">Región de Valparaiso</option>
+                <option value="6">Región del Libertador General Bernardo O'Higgins</option>
+                <option value="7">Región del Maule</option>
+                <option value="8">Región del Biobío</option>
+                <option value="9">Región de la Araucanía</option>
+                <option value="10">Región de los Lagos</option>
+                <option value="11">Región de Aysén del General Carlos Ibáñez del Campo</option>
+                <option value="12">Región de Magallanes y Antártica Chilena</option>
+                <option value="13">Región Metropolitana de santiago</option>
+                <option value="14">Región de los Ríos</option>
+                <option value="15">Región de Arica y Parinacota</option>
+                <option value="16">Región de Ñuble</option>
+            </select>
+            <select class="select-form-acceso" name="opciones-comunas" required>
+                <option value="" disabled selected>Elige una comuna</option>
+            </select>
+            <button class="btn-registrar" type="button">REGISTRAR</button>
+        </fieldset>
+        <p class="link-login"><a href="login.html">INICIAR SESION</a></p>
+  <script>
+    if (localStorage.getItem("usuarioActivo")) {
+        window.location.href = "index.html";
+    }
+    const datosRegiones = {
+        "1": ["Alto Hospicio", "Camiña", "Colchane", "Huara","Iquique","Pique","Pica","Pozo Almonte"],
+        "2": ["Antofagasta", "Calama", "Maria Elena", "Mejillones","Ollagüe","San Pedro de Atacama","Sierra Gorda","TalTal","Tocopilla"],
+        "3": ["Alto del carmen", "Caldera", "Chañaral", "Copiapó","Diego de Almagro","Freirina","Huasco","Tierra Amarilla","Vallenar"],
+        "4": ["Andacollo", "Canela", "Combarbalá", "Coquimbo","Illapel","La Higuera","La Serena","Los vilos","Monte Patria","Ovalle","Paihuano","Punitaqui","Rio Hurtado","Salmanca","Vicuña"],
+        "5": ["Algarrobo", "Cabildo", "Calle Larga", "Cartagena","Casablanca","Catemu","Concón","El Quisco","El Tabo","Hijuelas","Isla de Pascua","Juan Fernández","La Calera","La Cruz","La Ligua","Limache","Llaillay","Los Andes","Nogales","Olmué","Panquehue","Papudo","Petorca","Puchuncaví","Putaendo","Quillota","Quilpué","Quintero","Riconada","San Antonio","San Esteban","San Felipe","Santa Maria","Santo Domingo","Valparaíso","Villa Alemana","Viña del Mar","Zapallar"],
+        "6": ["Chépica", "Chimbarongo", "Codegua", "Coinco","Coltauco","Doñihue","Graneros","La Estrella","Las Cabras","Litueche","Lolol","Machalí","Malloe","Marchihue","Mostazal","Nancagua","Navidad","Olivar","Palmilla","Paredones","Peralillo","Peumo","Pichidegua","Pichilemu","Pumanque","Quinta de Tilcoco","Rancagua","Rengo","Requínoa","San Fernando","Santa Cruz","San Vicente"],
+        "7": ["Cauquenes", "Chanco", "Colbún", "Constitución","Curepto","Curicó","Empedrado","Hualañe","Lincantén","Linares","Longaví","Maule","Molina","Parral","Pelarco","Pellahue","Pencahue","Rauco","Retiro","Rio Claro","Romeral","Sagrada Familia","San Clemente","San Javier","San Rafael","Talca","Teno","Vichuquén","Villa Alegre","Yerbas Buenas"],
+        "8": ["Alto Biobío", "Antuco", "Arauco", "Cabrero", "Cañete", "Chiguayante", "Concepción", "Contulmo", "Coronel", "Curanilahue", "Florida", "Hualpén", "Hualqui", "Laja", "Lebu", "Los Alamos", "Los Angeles", "Lota", "Mulchén", "Nacimiento", "Negrete", "Penco", "Quilaco", "Quilleco", "San Pedro de la Paz", "San Rosendo", "Santa Bárbara", "Santa Juana", "Talcahuano", "Tirúa", "Tomé", "Tucapel", "Yumbel"],
+        "9": ["Angol", "Carahue", "Cholchol", "Collipulli", "Cunco", "Curacautín", "Curarrehue", "Ercilla", "Freire", "Galvarino", "Gorbea", "Lautaro", "Loncoche", "Lonquimay", "Los Sauces", "Lumaco", "Melipeuco", "Nueva Imperial", "Padre Las Casas", "Perquenco", "Pitrufquén", "Pucón", "Purén", "Renaico", "Saavedra", "Temuco", "Teodoro Schmidt", "Toltén", "Traiguén", "Victoria", "Vilcún", "Villarrica"],
+        "10": ["Ancud", "Calbuco", "Castro", "Chaitén", "Chonchi", "Cochamó", "Curaco de Vélez", "Dalcahue", "Fresia", "Frutillar", "Futaleufú", "Hualaihué", "Llanquihue", "Los Muermos", "Maullín", "Osorno", "Palena", "Puerto Montt", "Puerto Octay", "Puerto Varas", "Puqueldón", "Purranque", "Puyehue", "Queilén", "Quellón", "Quemchi", "Quinchao", "Río Negro", "San Juan de la Costa", "San Pablo"],
+        "11": ["Aysén", "Chile Chico", "Cisnes", "Cochrane", "Coyhaique", "Guaitecas", "Lago Verde", "O'Higgins", "Río Ibáñez", "Tortel"],
+        "12": ["Antártica", "Cabo de Hornos", "Laguna Blanca", "Natales", "Porvenir", "Primavera", "Punta Arenas", "Río Verde", "San Gregorio", "Timaukel", "Torres del Paine"],
+        "13": ["Alhué", "Buin", "Calera de Tango", "Cerrillos", "Cerro Navia", "Colina", "Conchalí", "Curacaví", "El Bosque", "El Monte", "Estación Central", "Huechuraba", "Independencia", "Isla de Maipo", "La Cisterna", "La Florida", "La Granja", "Lampa", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "María Pinto", "Melipilla", "Ñuñoa", "Padre Hurtado", "Paine", "Pedro Aguirre Cerda", "Peñaflor", "Peñalolén", "Pirque", "Providencia", "Pudahuel", "Puente Alto", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Bernardo", "San Joaquín", "San José de Maipo", "San Miguel", "San Pedro", "San Ramón", "Santiago", "Talagante", "Tiltil", "Vitacura"],
+        "14": ["Corral", "Futrono", "Lago Ranco", "Lanco", "La Unión", "Los Lagos", "Máfil", "Mariquina", "Paillaco", "Panguipulli", "Río Bueno", "Valdivia"],
+        "15": ["Arica", "Camarones", "General Lagos", "Putre"],
+        "16": ["Bulnes", "Chillán", "Chillán Viejo", "Cobquecura", "Coelemu", "Coihueco", "El Carmen", "Ninhue", "Ñiquén", "Pemuco", "Pinto", "Portezuelo", "Quillón", "Quirihue", "Ránquil", "San Carlos", "San Fabián", "San Ignacio", "San Nicolás", "Treguaco", "Yungay"]
+    };
+
+    const selectRegion = document.querySelector('select[name="opciones-regiones"]');
+    const selectComuna = document.querySelector('select[name="opciones-comunas"]');
+
+    selectRegion.addEventListener('change', (e) => {
+        const regionElegida = e.target.value;
+
+        selectComuna.innerHTML = '<option value="" disabled selected>Elige una opción</option>';
+        if (datosRegiones[regionElegida]) {
+            datosRegiones[regionElegida].forEach(comuna => {
+                selectComuna.innerHTML += `<option value="${comuna}">${comuna}</option>`;
+            });
+        }
+    });
+    const btnRegistrar = document.querySelector('.btn-registrar');
+
+    btnRegistrar.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    document.querySelectorAll('.texto-error').forEach(el => el.remove());
+    document.querySelectorAll('input, select').forEach(el => el.style.borderColor = '');
+
+    let hayError = false;
+    function marcarError(nombreCampo, mensaje) {
+        const campo = document.querySelector(`[name="${nombreCampo}"]`);
+        campo.style.borderColor = '#dc3545';
+        
+        const spanError = document.createElement('span');
+        spanError.className = 'texto-error';
+        spanError.style.color = '#dc3545';
+        spanError.style.fontSize = '13px';
+        spanError.style.display = 'block';
+        spanError.style.marginTop = '2px';
+        spanError.style.marginBottom = '10px';
+        spanError.innerText = mensaje;
+        
+        campo.parentNode.insertBefore(spanError, campo.nextSibling);
+        hayError = true;
+    }
+
+    const nombre = document.querySelector('input[name="campo_nombre"]').value.trim();
+    const correo = document.querySelector('input[name="campo_correo"]').value.trim();
+    const confirmarCorreo = document.querySelector('input[name="campo_correo-confirmar"]').value.trim();
+    const contrasena = document.querySelector('input[name="campo_contraseña"]').value.trim();
+    const confirmarContrasena = document.querySelector('input[name="campo_contraseña-confirmar"]').value.trim();
+    const region = document.querySelector('select[name="opciones-regiones"]').value;
+    const comuna = document.querySelector('select[name="opciones-comunas"]').value;
+
+    if (!nombre) marcarError('campo_nombre', 'El nombre es obligatorio.');
+    else if (nombre.length > 100) marcarError('campo_nombre', 'Máximo 100 caracteres.');
+
+    if (!correo) marcarError('campo_correo', 'El correo es obligatorio.');
+    else if (correo.length > 100) marcarError('campo_correo', 'Máximo 100 caracteres.');
+    else {
+        const dominiosPermitidos = ['@duoc.cl', '@profesor.duoc.cl', '@gmail.com'];
+        const correoValido = dominiosPermitidos.some(dominio => correo.endsWith(dominio));
+        if (!correoValido) marcarError('campo_correo', 'Solo correos @duoc.cl, @profesor.duoc.cl o @gmail.com');
+    }
+
+    if (!confirmarCorreo) marcarError('campo_correo-confirmar', 'Debes confirmar tu correo.');
+    else if (correo !== confirmarCorreo) marcarError('campo_correo-confirmar', 'Los correos no coinciden.');
+
+    if (!contrasena) marcarError('campo_contraseña', 'La contraseña es obligatoria.');
+    else if (contrasena.length < 4 || contrasena.length > 10) marcarError('campo_contraseña', 'Debe tener entre 4 y 10 caracteres.');
+
+    if (!confirmarContrasena) marcarError('campo_contraseña-confirmar', 'Debes confirmar tu contraseña.');
+    else if (contrasena !== confirmarContrasena) marcarError('campo_contraseña-confirmar', 'Las contraseñas no coinciden.');
+
+    if (!region) marcarError('opciones-regiones', 'Selecciona una región.');
+    if (!comuna) marcarError('opciones-comunas', 'Selecciona una comuna.');
+
+    if (!hayError) {
+        alert("Usuario registrado con éxito.");
+    }
+    });
+    function cerrarSesion() {
+        localStorage.removeItem("usuarioActivo");
+        localStorage.removeItem("rolUsuario");
+        
+        alert("¡Sesión cerrada con éxito!");
+        window.location.href = "index.html";
+    }
+    function verificarEstadoSesion() {
+        const usuarioActivo = localStorage.getItem("usuarioActivo");
+        const btnLogin = document.getElementById("btn-login");
+        const btnLogout = document.getElementById("btn-logout");
+
+        if (usuarioActivo) {
+            if (btnLogin) btnLogin.style.display = "none";
+            if (btnLogout) btnLogout.style.display = "inline";
+        } else {
+            if (btnLogin) btnLogin.style.display = "inline";
+            if (btnLogout) btnLogout.style.display = "none";
+        }
+    }
+    document.addEventListener("DOMContentLoaded", verificarEstadoSesion);
+  </script>
+      </div>
+    <footer class="pie">Desarrollado por GG AT MC<a href="#"><img class="img" src="imagenes/content.png" alt="J&amp;C"></a></footer>
+</body>
+</html>

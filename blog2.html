@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>NOTICIA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="blog2.css">
+</head>
+ 
+<body>
+  <header class="header-boti">
+    <div class="contorno-div">
+        <img class="img-boti" src="img/imagen-boti.png">
+        <h1 class="titulo_botilleria">Botilleria J&C</h1>
+    </div>
+    <nav class="nav-link">
+        <a href="index.html" class="links-nav">Home</a>
+        <a href="nosotros.html" class="links-nav">Nosotros</a>
+        <a href="blog.html" class="links-nav">Blogs</a>
+        <a href="contacto.html" class="links-nav">Contactos</a>
+        <a href="login.html"><img class="img-usuario" src="imagenesbotilleria/usuario.webp"></a>
+        <a href="carrito.html"><img class="img-carrito" src="imagenesbotilleria/carrito.png"></a>
+        <a href="#" class="links-nav" id="btn-logout" style="display: none;" onclick="cerrarSesion()">Salir</a>
+    </nav>
+  </header>
+<article class="contenido-caso1">
+    <div>
+        <h1>El ingrediente olvidado: por qué la calidad del hielo define el sabor de tu trago</h1>
+        <p>
+        Solemos gastar tiempo y dinero eligiendo una buena botella de destilado, 
+        pero muchas veces arruinamos la experiencia usando hielo hueco, 
+        con olor a refrigerador o demasiado picado. En coctelería, 
+        el hielo es un ingrediente activo fundamental.
+        </p>
+        <p>
+          El hielo pequeño o con bolsas de aire se derrite a gran velocidad, 
+          aguando el trago en pocos minutos y matando los matices de destilados como el whisky o el gin. 
+          Por el contrario, un cubo macizo, grande y denso enfría el vaso rápidamente sin desprender agua en exceso, 
+          permitiendo disfrutar los aromas originales de principio a fin.
+        </p>
+        </div>
+        <div class="imagen">
+            <img class="hielos" src="img/hielo.png">
+        </div>
+    </article>
+
+    <article class="contenido-caso2">
+    <div>
+        <h1>El añejamiento de destilados: mitos y verdadesLicores blancos vs. 
+          licores oscuros: qué define su color y cómo impacta en el cuerpo</h1>
+        <p>
+        Existe la creencia errónea de que todos los destilados oscuros son naturalmente más 
+        fuertes en graduación que los transparentes. La realidad es que todos los licores 
+        salen completamente claros e incoloros del alambique tras la destilación; la 
+        diferencia visual y de sabor posterior depende exclusivamente del reposo y la maduración.
+        </p>
+        <p>
+          Los destilados blancos (como el vodka, el gin o ciertos piscos transparentes) 
+          van directo del contenedor inerte (acero o vidrio) a la botella, preservando 
+          notas frescas, florales o puramente alcohólicas. Los destilados ámbar o dorados 
+          (como el ron añejo, el whisky o el brandy) adquieren ese color por contacto 
+          prolongado con la madera tostada de las barricas, absorbiendo taninos, azúcares naturales y aceites.
+        </p>
+        </div>
+        <div class="imagen">
+            <img class="tiposDeLicor" src="img/tipos-licor.png">
+        </div>
+    </article>
+
+    <article class="contenido-caso3">
+    <div>
+        <h1>Snacks infalibles: qué comer para acompañar destilados y resaltar sus notas</h1>
+        <p>
+        Acompañar los destilados con la comida adecuada no solo cuida el cuerpo durante la junta, 
+        sino que potencia los sabores del licor. La alta graduación alcohólica pide bocados que 
+        limpien el paladar y equilibren la intensidad de cada sorbo.
+        </p>
+        <p>
+          Para tragos cítricos o refrescantes a base de gin o pisco blanco, los quesos suaves 
+          (como mantecoso o de cabra), aceitunas verdes y frutos secos salados son el complemento perfecto. 
+          Si la preferencia va hacia whiskies o rones añejos, los frutos secos tostados (almendras, nueces) 
+          y trozos pequeños de chocolate semiamargo generan un contraste increíble con las notas a madera y 
+          vainilla del trago.
+        </p>
+          <a href="blog.html" class="btn-volver">← Volver a noticias</a>  
+        </div>
+        <div class="imagen">
+            <img class="snacks" src="img/snacks-licor.png">
+        </div>
+    </article>
+<script>
+  function cerrarSesion() {
+    localStorage.removeItem("usuarioActivo");
+    localStorage.removeItem("rolUsuario");
+
+    alert("¡Sesión cerrada con éxito!");
+    window.location.href = "index.html";
+  }
+  function verificarEstadoSesion() {
+        const usuarioActivo = localStorage.getItem("usuarioActivo");
+        const btnLogin = document.getElementById("btn-login");
+        const btnLogout = document.getElementById("btn-logout");
+
+        if (usuarioActivo) {
+            if (btnLogin) btnLogin.style.display = "none";
+            if (btnLogout) btnLogout.style.display = "inline";
+        } else {
+            if (btnLogin) btnLogin.style.display = "inline";
+            if (btnLogout) btnLogout.style.display = "none";
+        }
+    }
+    document.addEventListener("DOMContentLoaded", verificarEstadoSesion);
+
+
+</script>
+    <footer class="pie">Desarrollado por GG AT MC<a href="#"><img class="img" src="img/imagen-boti.png" alt="J&amp;C"></a></footer>
+</body>
+</html>

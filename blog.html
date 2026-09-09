@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>BLOGS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="blog.css">
+</head>
+ 
+<body>
+  <header class="header-boti">
+    <div class="contorno-div">
+        <img class="img-boti" src="img/imagen-boti.png" alt="Logo Botillería">
+        <h1 class="titulo_botilleria">Botilleria J&C</h1>
+    </div>
+    <nav class="nav-link">
+        <a href="index.html" class="links-nav">Home</a>
+        <a href="nosotros.html" class="links-nav">Nosotros</a>
+        <a href="blog.html" class="links-nav">Blogs</a>
+        <a href="contacto.html" class="links-nav">Contactos</a>
+        <a href="login.html"><img class="img-usuario" src="imagenesbotilleria/usuario.webp"></a>
+        <a href="carrito.html"><img class="img-carrito" src="imagenesbotilleria/carrito.png"></a>
+        <a href="#" class="links-nav" id="btn-logout" style="display: none;" onclick="cerrarSesion()">Salir</a>
+    </nav>
+  </header>
+
+  <h1 class="seccion_noticia">Noticias importantes</h1>
+
+  <article class="tajeta-noticia">
+    <div class="info-noticia">
+      <h2>
+        El secreto de la madera: mitos y verdades del añejamiento en barricas de roble
+      </h2>
+      <p>
+        Descubre los mitos y verdades sobre el añejamiento de 
+        destilados en barricas de roble y cómo cambia el sabor con el paso de los años.
+      </p>  
+      <a href="blog1.html" style="text-decoration: none;">
+        <button class="btn_ver_noticia"> Ver Caso </button>
+      </a>
+    </div>
+    <div class="imagen-noticia">
+      <img class="barrica" src="img/barrica.png" alt="Barrica de roble">
+    </div>
+  </article>
+
+  <article class="tajeta-noticia">
+    <div class="info-noticia">
+      <h2>
+        El auge del pisco artesanal y los destilados premium en el barrio
+      </h2>
+      <p>
+        Descubre por qué los destilados nacionales y 
+        los tragos preparados están ganando terreno en las celebraciones de fin de semana.
+      </p>  
+      <a href="blog2.html" style="text-decoration: none;">
+        <button class="btn_ver_noticia"> Ver Caso </button>
+      </a>
+    </div>
+    <div class="imagen-noticia2">
+      <img class="pisco" src="img/pisco.png" alt="Pisco y destilados">
+    </div>
+  </article>
+
+  <section class="seccion-ofertas-dibujo">
+    
+    <h2 class="titulo-ofertas">Ofertas destacadas de la semana</h2>
+
+    <div class="contenedor-producto">
+      <img class="img-producto" src="img/altodelcarmen-bauzapisco.png" alt="Pack Chileno">
+    </div>
+    <div class="caja-texto-oferta">
+      <h3>Pack Chileno: 3x Pisco Alto del Carmen 35° 1 L + 3x Pisco Bauza Blanco 35° 1 L — $32.990</h3>
+      <p class="precio-tachado">Antes: $56.940</p>
+      <p class="detalle-oferta">
+        <strong>BOTILLERIA J&C.</strong> Seis botellas combinando dos marcas favoritas del barrio, ideal para compartir en grupo con 42% de descuento.
+      </p>
+    </div>
+
+    <div class="contenedor-producto">
+      <img class="img-producto" src="img/altodelcarmen.png" alt="Pisco Alto del Carmen">
+    </div>
+    <div class="caja-texto-oferta">
+      <h3>Pisco Alto del Carmen 35° 1 Lt. X6 — $34.990</h3>
+      <p class="precio-tachado">Antes: $53.940</p>
+      <p class="detalle-oferta">
+        <strong>ALTO DEL CARMEN.</strong> Pack de 6 botellas a $5.832 c/u, perfecto para tener stock de un clásico chileno a buen precio.
+      </p>
+    </div>
+
+    <div class="contenedor-producto">
+      <img class="img-producto" src="img/aperol.png" alt="Aperol Licor Aperitivo">
+    </div>
+    <div class="caja-texto-oferta">
+      <h3>Aperol Licor Aperitivo 750cc — $9.999</h3>
+      <p class="precio-tachado">Antes: $12.490</p>
+      <p class="detalle-oferta">
+        <strong>APEROL.</strong> El infaltable para spritz y aperitivos de fin de semana, con su característico color y sabor cítrico.
+      </p>
+    </div>
+
+    <div class="contenedor-producto">
+      <img class="img-producto" src="img/alto_del_carmen_bauza_pisco_caja.png" alt="Pack Chileno caja">
+    </div>
+    <div class="caja-texto-oferta">
+      <h3>Pack Chileno: 3x Pisco Alto del Carmen 35° 1L + 3x Pisco Bauza 35° 1L — $32.990</h3>
+      <p class="precio-tachado">Antes: $56.940</p>
+      <p class="detalle-oferta">
+        <strong>BOTILLERIA J&C.</strong> La versión en caja del pack chileno, lista para regalar o guardar para la próxima celebración.
+      </p>
+    </div>
+
+    <div class="contenedor-producto">
+      <img class="img-producto" src="img/ramazzotti.png" alt="Ramazzotti Rosato">
+    </div>
+    <div class="caja-texto-oferta">
+      <h3>Licor Aperitivo Ramazzotti Rosato 700cc — $9.790</h3>
+      <p class="precio-tachado">Antes: $13.690</p>
+      <p class="detalle-oferta">
+        <strong>RAMAZZOTTI.</strong> Un aperitivo italiano suave y afrutado, ideal para previas ligeras.
+      </p>
+    </div>
+
+    <div class="contenedor-producto">
+      <img class="img-producto" src="img/fincaflichman_1.png" alt="Espumante Finca Flichman">
+    </div>
+    <div class="caja-texto-oferta">
+      <h3>Espumante Finca Flichman Extra Brut 750cc x6 — $25.140</h3>
+      <p class="precio-tachado">Antes: $59.940</p>
+      <p class="detalle-oferta">
+        <strong>FINCA FLICHMAN.</strong> El mayor descuento de la semana: seis espumantes para celebrar sin gastar de más.
+      </p>
+    </div>
+
+    <div class="contenedor-producto">
+      <img class="img-producto" src="img/cajapiscoaltodelcarmen_3.png" alt="Pisco Alto Del Carmen Transparente">
+    </div>
+    <div class="caja-texto-oferta">
+      <h3>Pisco Alto Del Carmen Transparente 40° 750cc x6 — $34.990</h3>
+      <p class="precio-tachado">Antes: $56.940</p>
+      <p class="detalle-oferta">
+        <strong>ALTO DEL CARMEN.</strong> Pack de 6 unidades a $5.832 c/u, el favorito para preparar piscolas todo el mes.
+      </p>
+    </div>
+
+    <div class="contenedor-producto">
+      <img class="img-producto" src="img/ginsinalcohol.png" alt="Tanqueray sin alcohol">
+    </div>
+    <div class="caja-texto-oferta">
+      <h3>Tanqueray 0.0° Sin Alcohol 700ml — $15.990</h3>
+      <p class="precio-tachado">Antes: $24.990</p>
+      <p class="detalle-oferta">
+        <strong>TANQUERAY.</strong> La opción sin alcohol para quienes igual quieren disfrutar de un buen trago en la previa.
+      </p>
+    </div>
+
+    <div class="contenedor-producto">
+      <img class="img-producto" src="img/pisco-solo.png" alt="Pisco Alto del Carmen 1L">
+    </div>
+    <div class="caja-texto-oferta">
+      <h3>Pisco Alto del Carmen 35° 1L — $6.290</h3>
+      <p class="precio-tachado">Antes: $8.990</p>
+      <p class="detalle-oferta">
+        <strong>ALTO DEL CARMEN.</strong> La botella individual más pedida, ahora a mejor precio por tiempo limitado.
+      </p>
+    </div>
+
+    <div class="contenedor-producto">
+      <img class="img-producto" src="img/PISCO_3R.png" alt="Pisco Tres Erres">
+    </div>
+    <div class="caja-texto-oferta">
+      <h3>Pisco Tres Erres 3R 35° 1L X6 — $31.140</h3>
+      <p class="precio-tachado">Antes: $47.940</p>
+      <p class="detalle-oferta">
+        <strong>TRES ERRES.</strong> Pack de 6 botellas a $5.190 c/u, una alternativa económica sin sacrificar calidad.
+      </p>
+    </div>
+  </section>
+  <script>
+    function cerrarSesion() {
+      localStorage.removeItem("usuarioActivo");
+      localStorage.removeItem("rolUsuario");
+      
+      alert("¡Sesión cerrada con éxito!");
+      window.location.href = "index.html";
+  }
+  function verificarEstadoSesion() {
+        const usuarioActivo = localStorage.getItem("usuarioActivo");
+        const btnLogin = document.getElementById("btn-login");
+        const btnLogout = document.getElementById("btn-logout");
+
+        if (usuarioActivo) {
+            if (btnLogin) btnLogin.style.display = "none";
+            if (btnLogout) btnLogout.style.display = "inline";
+        } else {
+            if (btnLogin) btnLogin.style.display = "inline";
+            if (btnLogout) btnLogout.style.display = "none";
+        }
+    }
+    document.addEventListener("DOMContentLoaded", verificarEstadoSesion);
+  </script>
+  <footer class="pie">Desarrollado por GG AT MC<a href="#"><img class="img" src="img/imagen-boti.png" alt="J&amp;C"></a></footer>
+</body>
+</html>

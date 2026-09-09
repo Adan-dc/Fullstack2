@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+ 
+.header-boti {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between; 
+    background-color: #1e1e20;
+    padding: 15px 50px;
+}
+ 
+.contorno-div {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+ 
+.img-boti {
+    max-height: 50px;
+    width: auto;
+}
+ 
+.titulo_botilleria {
+    color: #ffffff;
+    margin: 0;
+    font-size: 28px; 
+}
+ 
+.nav-link {
+    display: flex;
+    gap: 30px;
+}
+ 
+.links-nav {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+ 
+.links-nav:hover {
+    color: #d32f2f;
+}
+ 
+.img-usuario, .img-carrito {
+    max-height: 25px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    position: relative;
+    bottom: 5px;
+}
+ 
+.img-carrito:hover {
+    filter: invert(27%) sepia(91%) saturate(3078%) hue-rotate(345deg) brightness(93%) contrast(93%); /* Tono rojo al pasar el mouse */
+}
+
+.seccion_noticia {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.tajeta-noticia {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f0f0f0;
+  max-width: 900px;
+  margin: 0 auto 20px auto;
+  padding: 25px;
+  border-radius: 4px;
+}
+
+.info-noticia {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.info-noticia h2 {
+  margin: 0 0 10px 0;
+}
+
+.info-noticia p {
+  color: #555;
+  font-size: 14px;
+}
+
+.imagen-noticia {
+  width: 250px;
+  height: 150px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.imagen-noticia2 {
+  width: 250px;
+  height: 150px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.barrica {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn_ver_noticia { /* este boton es para todos los botones*/
+  background: #fff;
+  border: 1px solid #333;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.imagen-noticia2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 65%;
+}
+
+.seccion-ofertas-dibujo {
+  max-width: 650px;
+  margin: 50px auto;
+  padding: 0 15px;
+}
+
+.titulo-ofertas {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+}
+
+.contenedor-producto {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.img-producto {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.caja-texto-oferta {
+  background-color: #f7f7f7;
+  border-left: 4px solid #111;
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 35px;
+}
+
+.caja-texto-oferta h3 {
+  margin-bottom: 4px;
+}
+
+.precio-tachado {
+  color: #777;
+  text-decoration: line-through;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.detalle-oferta {
+  line-height: 1.5;
+  color: #444;
+}
+
+.imagen-noticia2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 65%;
+}
+
+footer {
+    margin-top: auto; 
+    width: 100%;
+}
+
+.pie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 24px;
+    border-top: 1px solid #2c261f;
+    color: #8a7d6e;
+    font-size: 0.82rem;
+}
+
+.pie .img {
+    height: 28px;
+    width: auto;
+}

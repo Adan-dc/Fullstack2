@@ -1,0 +1,185 @@
+* { /* selecciona todos los elementos de la pagina */
+  box-sizing: border-box; /* hace que todo quede dentro del width */
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.header-boti {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between; 
+    background-color: #1e1e20;
+    padding: 15px 50px;
+}
+
+.contorno-div {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+.img-boti {
+    max-height: 50px;
+    width: auto;
+}
+
+.titulo_botilleria {
+    color: #ffffff;
+    margin: 0;
+    font-size: 28px; 
+}
+
+.nav-link {
+    display: flex;
+    gap: 30px;
+}
+
+.links-nav {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.links-nav:hover {
+    color: #d32f2f;
+}
+
+.img-usuario, .img-carrito {
+    max-height: 25px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    position: relative;
+    bottom: 5px;
+}
+
+.img-carrito:hover {
+    filter: invert(27%) sepia(91%) saturate(3078%) hue-rotate(345deg) brightness(93%) contrast(93%); /* Tono rojo al pasar el mouse */
+}
+
+.contenido-caso1{
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.texto-caso {
+  flex: 1;
+  min-width: 0;
+}
+
+.contenido-caso1 h1{
+    margin-bottom: 20px;
+}
+
+.contenido-caso1 p{
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contenido-caso2{
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.texto-caso {
+  flex: 1;
+  min-width: 0;
+}
+
+.contenido-caso2 h1{
+    margin-bottom: 20px;
+}
+
+.contenido-caso2 p{
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contenido-caso3{
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.texto-caso {
+  flex: 1;
+  min-width: 0;
+}
+
+.contenido-caso3 h1{
+    margin-bottom: 20px;
+}
+
+.contenido-caso3 p{
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.btn-volver {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #333;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.imagen{
+    width: 350px;
+  flex-shrink: 0;
+}
+
+.imagen-caso img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+img { /* se agrega sin clase y sin punto, para que seleccione
+    todas las imagenes de la pagina */
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+footer {
+    margin-top: auto; 
+    width: 100%;
+}
+
+.pie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 24px;
+    border-top: 1px solid #2c261f;
+    color: #8a7d6e;
+    font-size: 0.82rem;
+}
+
+.pie .img {
+    height: 28px;
+    width: auto;
+}
